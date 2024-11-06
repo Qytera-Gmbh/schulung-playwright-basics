@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "app" {
-  bucket = local.data_bucket
+  bucket = var.data_bucket
 }
 
 resource "aws_s3_bucket_public_access_block" "app" {

@@ -53,7 +53,7 @@ resource "aws_cloudfront_distribution" "app" {
 }
 
 resource "aws_cloudfront_origin_access_control" "app" {
-  name                              = local.data_bucket
+  name                              = var.data_bucket
   origin_access_control_origin_type = "s3"
   signing_behavior                  = "always"
   signing_protocol                  = "sigv4"

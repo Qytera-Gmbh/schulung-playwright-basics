@@ -15,15 +15,15 @@ jobs:
       run:
         working-directory: ./tag-1/app
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: "npm"
           cache-dependency-path: tag-1/app/package-lock.json
       - run: npm ci
       - run: npm run build
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: party-planner
@@ -36,8 +36,8 @@ jobs:
     needs: [build]
     name: Upload to S3
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/download-artifact@v3
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
         with:
           name: party-planner
           path: dist
@@ -49,4 +49,4 @@ jobs:
           aws-region: eu-central-1
       - name: Sync files to S3 bucket
         run: |
-          aws s3 sync dist s3://${{ secrets.AWS_S3_BUCKET_NAME }} --delete
+          aws s3 sync dist s3://${{ secrets.TF_VAR_DATA_BUCKET }} --delete

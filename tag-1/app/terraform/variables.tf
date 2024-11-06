@@ -16,6 +16,12 @@ variable "app_name" {
   description = "The name of the application. Will be used as the subdomain and to assign names to resources."
 }
 
+variable "data_bucket" {
+  type        = string
+  nullable    = false
+  description = "The bucket in which the application will be stored."
+}
+
 variable "state_bucket" {
   type        = string
   nullable    = false
@@ -23,8 +29,6 @@ variable "state_bucket" {
 }
 
 locals {
-  # The bucket in which the application will be stored.
-  data_bucket = replace(lower(local.fqdn), "/\\./", "-")
   # The fully qualified domain name.
   fqdn = "${replace(lower(var.app_name), "/[^a-zA-Z0-9-]/", "")}.${var.domain}"
 }
