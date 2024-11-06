@@ -1,9 +1,3 @@
-variable "aws_org_id" {
-  type        = string
-  description = "The ID of the organisation."
-  nullable    = false
-}
-
 variable "domain" {
   type        = string
   nullable    = false
