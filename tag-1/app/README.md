@@ -6,16 +6,16 @@ A [Vue.js](https://vuejs.org/) project utilizing [Mantine](https://mantine.dev/)
 
 1. Install Dependencies
 
-```bash
-cd tag-1/app
-npm install
-```
+   ```bash
+   cd tag-1/app
+   npm install
+   ```
 
 2. Run the Project
 
-```bash
-npm run dev
-```
+   ```bash
+   npm run dev
+   ```
 
 ## Usage
 
