@@ -1,0 +1,45 @@
+version: "3.5"
+
+services:
+  mattermost:
+    image: mattermost/mattermost-team-edition:9.11
+    restart: unless-stopped
+    depends_on: [db]
+    ports:
+      - 80:8065
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+    pids_limit: 200
+    environment:
+      # https://docs.mattermost.com/configure/environment-configuration-settings.html
+      TZ: "UTC"
+      MM_SQLSETTINGS_DRIVERNAME: "postgres"
+      MM_SQLSETTINGS_DATASOURCE: "postgres://postgres:xyz@db:5432/mattermost?sslmode=disable&connect_timeout=10"
+      MM_LOGSETTINGS_ENABLEDIAGNOSTICS: "false"
+      MM_EMAILSETTINGS_SENDPUSHNOTIFICATIONS: "false"
+      MM_SERVICESETTINGS_SITEURL: "http://localhost"
+      MM_BLEVESETTINGS_INDEXDIR: "/mattermost/bleve-indexes"
+      MATTERMOST_CONTAINER_READONLY: "false"
+      MATTERMOST_CONFIG_PATH: "./volumes/app/mattermost/config"
+      MATTERMOST_DATA_PATH: "./volumes/app/mattermost/data"
+      MATTERMOST_LOGS_PATH: "./volumes/app/mattermost/logs"
+      MATTERMOST_PLUGINS_PATH: "./volumes/app/mattermost/plugins"
+      MATTERMOST_CLIENT_PLUGINS_PATH: "./volumes/app/mattermost/client/plugins"
+      MATTERMOST_BLEVE_INDEXES_PATH: "./volumes/app/mattermost/bleve-indexes"
+
+  db:
+    image: postgres:13-alpine
+    restart: always
+    healthcheck:
+      { test: ["CMD-SHELL", "pg_isready -U postgres"], interval: 10s, timeout: 5s, retries: 5 }
+    volumes:
+      - "dbdata:/var/lib/postgresql/data"
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "xyz"
+      POSTGRES_DB: "mattermost"
+
+volumes:
+  dbdata:
