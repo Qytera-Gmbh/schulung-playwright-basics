@@ -1,4 +1,4 @@
-name: Build Party Planner
+name: Create Party Planner
 on:
   workflow_dispatch:
 
