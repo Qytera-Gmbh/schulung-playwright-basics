@@ -31,7 +31,7 @@ import { theme } from "./theme";
 
 export default function App() {
   const [opened, { open, close }] = useDisclosure(false);
-  const [date, setDate] = useState(new Date());
+  const [date] = useState(new Date());
   const [selectedArtists, setSelectedArtists] = useState<
     (typeof ARTISTS)[number][]
   >([]);
