@@ -45,6 +45,7 @@ export default function FingerFoodCard({ date }: { date: Date }) {
           defaultChecked={false}
           label="Ice Cream"
           description="Vanilla, Chocolate, Peppermint"
+          data-testid="checkbox-icecream"
         />
         <Checkbox
           defaultChecked={false}

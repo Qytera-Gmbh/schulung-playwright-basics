@@ -101,6 +101,7 @@ export default function FormCard(props: {
         <Fieldset legend="Dress code">
           <ColorInput
             label={"Primary color"}
+            data-testid="colorPicker PrimaryColor"
             disabled={
               !props.form.isDirty("organiser.name") ||
               !props.form.isDirty("organiser.email")
@@ -113,6 +114,7 @@ export default function FormCard(props: {
           />
           <ColorInput
             label={"Secondary color"}
+            data-testid="colorPicker SecondaryColor"
             disabled={
               !props.form.isDirty("organiser.name") ||
               !props.form.isDirty("organiser.email")
