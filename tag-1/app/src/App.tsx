@@ -1,38 +1,34 @@
 import {
   Anchor,
-  Avatar,
-  Box,
-  Button,
   Card,
   Center,
   Container,
   Divider,
   Grid,
-  Group,
   MantineProvider,
-  Popover,
-  SimpleGrid,
   Stack,
   Text,
-  TextInput,
   Title,
 } from "@mantine/core";
 import { DateValue } from "@mantine/dates";
 import { useCallback, useState } from "react";
 import CalendarCard from "./cards/CalendarCard";
-import { ARTISTS, TIMESLOTS } from "./cards/constants";
+import { ARTISTS, CATERERS, TIMESLOTS } from "./cards/constants";
 import FingerFoodCard from "./cards/FingerFoodCard";
 import FormCard from "./cards/FormCard";
 import PlaylistCard from "./cards/PlaylistCard";
 import { theme } from "./theme";
 
 import "@mantine/core/styles.css";
+import CatererCard from "./cards/CatererCard";
 
 export default function App() {
   const [date, setDate] = useState<DateValue>(new Date());
   const [time, setTime] = useState<DateValue>(TIMESLOTS[0]);
 
   const [selectedArtists, setSelectedArtists] = useState<(typeof ARTISTS)[number][]>([]);
+
+  const [selectedCaterer, setSelectedCaterer] = useState<(typeof CATERERS)[number] | null>(null);
 
   const updateArtist = useCallback(
     (artist: (typeof ARTISTS)[number]) => {
@@ -87,167 +83,17 @@ export default function App() {
                   selectedDate={date}
                   selectedTime={time}
                 />
-                <SimpleGrid cols={{ lg: 2 }} spacing="md">
-                  <Stack gap="md">
-                    <Card>
-                      <Box>
-                        <Title order={5}>Team Members</Title>
-                        <Text size="sm" c="dimmed">
-                          Invite your team members to collaborate.
-                        </Text>
-                      </Box>
-                      <Box mt="lg">
-                        <Stack gap="lg">
-                          <Group justify="space-between">
-                            <Group>
-                              <Avatar src="/avatars/01.png" alt="Image" radius="xl" />
-                              <div>
-                                <Text size="sm" fw={500}>
-                                  Sofia Davis
-                                </Text>
-                                <Text size="xs" c="dimmed">
-                                  m@example.com
-                                </Text>
-                              </div>
-                            </Group>
-                            <Popover width={200} position="bottom-end" withArrow shadow="md">
-                              <Popover.Target>
-                                <Button
-                                  variant="default"
-                                  size="xs"
-                                  /*rightSection={<ChevronDownIcon />}*/
-                                >
-                                  Owner
-                                </Button>
-                              </Popover.Target>
-                              <Popover.Dropdown>
-                                <TextInput placeholder="Select new role..." />
-                                <Divider my="sm" />
-                                <Stack gap="xs">
-                                  <Text size="sm">Viewer</Text>
-                                  <Text size="xs" c="dimmed">
-                                    Can view and comment.
-                                  </Text>
-                                  <Text size="sm">Developer</Text>
-                                  <Text size="xs" c="dimmed">
-                                    Can view, comment and edit.
-                                  </Text>
-                                  <Text size="sm">Billing</Text>
-                                  <Text size="xs" c="dimmed">
-                                    Can view, comment and manage billing.
-                                  </Text>
-                                  <Text size="sm">Owner</Text>
-                                  <Text size="xs" c="dimmed">
-                                    Admin-level access to all resources.
-                                  </Text>
-                                </Stack>
-                              </Popover.Dropdown>
-                            </Popover>
-                          </Group>
-                          <Group justify="space-between">
-                            <Group>
-                              <Avatar src="/avatars/02.png" alt="Image" radius="xl" />
-                              <div>
-                                <Text size="sm" fw={500}>
-                                  Jackson Lee
-                                </Text>
-                                <Text size="xs" c="dimmed">
-                                  p@example.com
-                                </Text>
-                              </div>
-                            </Group>
-                            <Popover width={200} position="bottom-end" withArrow shadow="md">
-                              <Popover.Target>
-                                <Button
-                                  variant="default"
-                                  size="xs"
-                                  /*rightSection={<ChevronDownIcon />}*/
-                                >
-                                  Member
-                                </Button>
-                              </Popover.Target>
-                              <Popover.Dropdown>
-                                <TextInput placeholder="Select new role..." />
-                                <Divider my="sm" />
-                                <Stack gap="xs">
-                                  <Text size="sm">Viewer</Text>
-                                  <Text size="xs" c="dimmed">
-                                    Can view and comment.
-                                  </Text>
-                                  <Text size="sm">Developer</Text>
-                                  <Text size="xs" c="dimmed">
-                                    Can view, comment and edit.
-                                  </Text>
-                                  <Text size="sm">Billing</Text>
-                                  <Text size="xs" c="dimmed">
-                                    Can view, comment and manage billing.
-                                  </Text>
-                                  <Text size="sm">Owner</Text>
-                                  <Text size="xs" c="dimmed">
-                                    Admin-level access to all resources.
-                                  </Text>
-                                </Stack>
-                              </Popover.Dropdown>
-                            </Popover>
-                          </Group>
-                          <Group justify="space-between">
-                            <Group>
-                              <Avatar src="/avatars/03.png" alt="Image" radius="xl" />
-                              <div>
-                                <Text size="sm" fw={500}>
-                                  Isabella Nguyen
-                                </Text>
-                                <Text size="xs" c="dimmed">
-                                  i@example.com
-                                </Text>
-                              </div>
-                            </Group>
-                            <Popover width={200} position="bottom-end" withArrow shadow="md">
-                              <Popover.Target>
-                                <Button
-                                  variant="default"
-                                  size="xs" /*rightSection={<ChevronDownIcon />}*/
-                                >
-                                  Member
-                                </Button>
-                              </Popover.Target>
-                              <Popover.Dropdown>
-                                <TextInput placeholder="Select new role..." />
-                                <Divider my="sm" />
-                                <Stack gap="xs">
-                                  <Text size="sm">Viewer</Text>
-                                  <Text size="xs" c="dimmed">
-                                    Can view and comment.
-                                  </Text>
-                                  <Text size="sm">Developer</Text>
-                                  <Text size="xs" c="dimmed">
-                                    Can view, comment and edit.
-                                  </Text>
-                                  <Text size="sm">Billing</Text>
-                                  <Text size="xs" c="dimmed">
-                                    Can view, comment and manage billing.
-                                  </Text>
-                                  <Text size="sm">Owner</Text>
-                                  <Text size="xs" c="dimmed">
-                                    Admin-level access to all resources.
-                                  </Text>
-                                </Stack>
-                              </Popover.Dropdown>
-                            </Popover>
-                          </Group>
-                        </Stack>
-                      </Box>
-                    </Card>
-                    {/* <CardsCookieSettings /> */}
-                    {/* <CardsPaymentMethod /> */}
-                  </Stack>
-
-                  <Stack gap="md">
-                    {/* <CardsChat /> */}
-                    {/* <CardsCreateAccount /> */}
-                    {/* <CardsReportIssue /> */}
-                  </Stack>
-                </SimpleGrid>
+                <CatererCard
+                  caterers={CATERERS}
+                  selectedCaterer={selectedCaterer}
+                  onCatererSelect={(email) => {
+                    const caterer = CATERERS.find((caterer) => caterer.email === email);
+                    if (!caterer) {
+                      return;
+                    }
+                    setSelectedCaterer(caterer);
+                  }}
+                />
               </Stack>
             </Grid.Col>
 
@@ -256,12 +102,6 @@ export default function App() {
                 <FingerFoodCard date={date} />
                 <PlaylistCard selectedArtists={selectedArtists} onArtistSelected={updateArtist} />
                 <FormCard selectedDay={date} selectedTime={time} />
-
-                {/* <CardsCalendar /> */}
-                {/* <CardsActivityGoal /> */}
-                {/* <CardsMetric /> */}
-                {/* <CardsDataTable /> */}
-                {/* <CardsShare /> */}
               </Stack>
             </Grid.Col>
           </Grid>
