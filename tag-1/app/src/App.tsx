@@ -28,6 +28,8 @@ export default function App() {
 
   const [selectedArtists, setSelectedArtists] = useState<(typeof ARTISTS)[number][]>([]);
 
+  const [selectedCaterer, setSelectedCaterer] = useState<(typeof CATERERS)[number] | null>(null);
+
   const updateArtist = useCallback(
     (artist: (typeof ARTISTS)[number]) => {
       setSelectedArtists((currentArtists) => {
@@ -81,7 +83,17 @@ export default function App() {
                   selectedDate={date}
                   selectedTime={time}
                 />
-                <CatererCard caterers={CATERERS} />
+                <CatererCard
+                  caterers={CATERERS}
+                  selectedCaterer={selectedCaterer}
+                  onCatererSelect={(email) => {
+                    const caterer = CATERERS.find((caterer) => caterer.email === email);
+                    if (!caterer) {
+                      return;
+                    }
+                    setSelectedCaterer(caterer);
+                  }}
+                />
               </Stack>
             </Grid.Col>
 
@@ -90,12 +102,6 @@ export default function App() {
                 <FingerFoodCard date={date} />
                 <PlaylistCard selectedArtists={selectedArtists} onArtistSelected={updateArtist} />
                 <FormCard selectedDay={date} selectedTime={time} />
-
-                {/* <CardsCalendar /> */}
-                {/* <CardsActivityGoal /> */}
-                {/* <CardsMetric /> */}
-                {/* <CardsDataTable /> */}
-                {/* <CardsShare /> */}
               </Stack>
             </Grid.Col>
           </Grid>
