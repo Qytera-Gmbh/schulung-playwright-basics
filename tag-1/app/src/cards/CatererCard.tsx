@@ -57,7 +57,7 @@ export default function CatererCard(props: {
                     {props.selectedCaterer.name}
                   </Text>
                   <Divider />
-                  <Text size="sm" c="dimmed" data-testid="selected-caterer-description">
+                  <Text size="sm" c="dimmed" fs="italic" data-testid="selected-caterer-description">
                     {props.selectedCaterer.description}
                   </Text>
                 </>
