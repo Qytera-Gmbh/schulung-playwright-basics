@@ -50,11 +50,8 @@ export default function App() {
       <Modal
         opened={opened}
         onClose={close}
-        // title={<Title order={2}>About Mantine Theme Builder</Title>}
-        // title={"About the project"}
         size={"xl"}
         centered
-        // scrollAreaComponent={ScrollArea.Autosize}
         styles={{ content: { paddingTop: "0rem" } }}
       >
         <ScrollArea h={"600px"} pe={"sm"} pl="md" pr="xl">
