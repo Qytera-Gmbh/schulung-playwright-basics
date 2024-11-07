@@ -13,6 +13,9 @@ import {
 } from "@mantine/core";
 import "@mantine/core/styles.css";
 import { useForm } from "@mantine/form";
+import { useDisclosure } from "@mantine/hooks";
+import { useState } from "react";
+import InvitationModal from "../modals/invitation-modal/InvitationModal";
 
 export interface PartyForm {
   organiser: {
@@ -24,132 +27,149 @@ export interface PartyForm {
     city: string;
     streetNumber: number;
   };
+  dressCode: {
+    primaryColor: string;
+    secondaryColor: string;
+  };
   additionalInformation: {
-    dressCode: {
-      primaryColor: string;
-      secondaryColor: string;
-    };
     comments: string;
   };
 }
 
-export default function FormCard(props: {
-  form: ReturnType<typeof useForm<PartyForm>>;
-}) {
+export default function FormCard() {
+  const [invitationModalOpened, invitationModalCallbacks] = useDisclosure(false);
+  const [submittedValues, setSubmittedValues] = useState<PartyForm | null>(null);
+  const form = useForm<PartyForm>({
+    mode: "uncontrolled",
+    initialValues: {
+      organiser: {
+        name: "",
+        email: "",
+      },
+      location: {
+        city: "",
+        street: "",
+        streetNumber: 0,
+      },
+      dressCode: {
+        primaryColor: "#a1589f",
+        secondaryColor: "#1f97b5",
+      },
+      additionalInformation: {
+        comments: "",
+      },
+    },
+    validate: {
+      organiser: {
+        email: (value) => (/^\S+@\S+$/.test(value) ? null : "Invalid email"),
+        name: (value) => (value.length > 0 ? null : "Name required"),
+      },
+      location: {
+        street: (value) => (value.length > 0 ? null : "Street required"),
+        streetNumber: (value) => (value > 0 ? null : "Street number must be greater than 0"),
+        city: (value) => (value.length > 0 ? null : "City required"),
+      },
+    },
+  });
+
   return (
-    <Card>
-      <Title order={3}>
-        <Text>Invitation</Text>
-      </Title>
-      <Divider my="md" />
-      <form onSubmit={props.form.onSubmit((values) => console.log(values))}>
-        <Fieldset legend="Organizer">
-          <TextInput
-            withAsterisk
-            label="Name"
-            placeholder="Jane Doe"
-            key={props.form.key("organiser.name")}
-            {...props.form.getInputProps("organiser.name")}
-          />
-          <TextInput
-            withAsterisk
-            label="Email"
-            placeholder="your@email.com"
-            key={props.form.key("organiser.email")}
-            {...props.form.getInputProps("organiser.email")}
-          />
-        </Fieldset>
-        <Fieldset legend="Location">
-          <Group>
+    <>
+      <InvitationModal
+        opened={invitationModalOpened}
+        onClose={invitationModalCallbacks.close}
+        data={submittedValues}
+      />
+      <Card>
+        <Title order={3}>
+          <Text>Invitation</Text>
+        </Title>
+        <Divider my="md" />
+        <form
+          onSubmit={form.onSubmit((values) => {
+            setSubmittedValues(values);
+            invitationModalCallbacks.open();
+          })}
+        >
+          <Fieldset legend="Organizer">
             <TextInput
               withAsterisk
-              disabled={
-                !props.form.isDirty("organiser.name") ||
-                !props.form.isDirty("organiser.email")
-              }
-              label="Street"
-              placeholder="Main Boulevard"
-              key={props.form.key("location.street")}
-              style={{ flex: 4 }}
-              {...props.form.getInputProps("location.street")}
+              label="Name"
+              placeholder="Jane Doe"
+              key={form.key("organiser.name")}
+              {...form.getInputProps("organiser.name")}
             />
-            <NumberInput
+            <TextInput
               withAsterisk
-              disabled={
-                !props.form.isDirty("organiser.name") ||
-                !props.form.isDirty("organiser.email")
-              }
-              label="Street Number"
-              placeholder="42"
-              key={props.form.key("location.streetNumber")}
-              style={{ flex: 1 }}
-              {...props.form.getInputProps("location.streetNumber")}
+              label="Email"
+              placeholder="your@email.com"
+              key={form.key("organiser.email")}
+              {...form.getInputProps("organiser.email")}
             />
+          </Fieldset>
+          <Fieldset legend="Location">
+            <Group>
+              <TextInput
+                withAsterisk
+                disabled={!form.isDirty("organiser.name") || !form.isDirty("organiser.email")}
+                label="Street"
+                placeholder="Main Boulevard"
+                key={form.key("location.street")}
+                style={{ flex: 4 }}
+                {...form.getInputProps("location.street")}
+              />
+              <NumberInput
+                withAsterisk
+                disabled={!form.isDirty("organiser.name") || !form.isDirty("organiser.email")}
+                label="Street Number"
+                key={form.key("location.streetNumber")}
+                style={{ flex: 1 }}
+                {...form.getInputProps("location.streetNumber")}
+              />
+            </Group>
+            <TextInput
+              withAsterisk
+              label="City"
+              placeholder="Duckburg"
+              disabled={!form.isDirty("organiser.name") || !form.isDirty("organiser.email")}
+              key={form.key("location.city")}
+              {...form.getInputProps("location.city")}
+            />
+          </Fieldset>
+          <Fieldset legend="Dress code">
+            <ColorInput
+              label={"Primary color"}
+              disabled={!form.isDirty("organiser.name") || !form.isDirty("organiser.email")}
+              placeholder="#a1589f"
+              key={form.key("dressCode.primaryColor")}
+              {...form.getInputProps("dressCode.primaryColor")}
+            />
+            <ColorInput
+              label={"Secondary color"}
+              disabled={!form.isDirty("organiser.name") || !form.isDirty("organiser.email")}
+              placeholder="#1f97b5"
+              key={form.key("dressCode.secondaryColor")}
+              {...form.getInputProps("dressCode.secondaryColor")}
+            />
+          </Fieldset>
+          <Fieldset legend="Additional information">
+            <Textarea
+              disabled={!form.isDirty("organiser.name") || !form.isDirty("organiser.email")}
+              label="Comments"
+              placeholder=""
+              key={form.key("additionalInformation.comments")}
+              {...form.getInputProps("additionalInformation.comments")}
+            />
+          </Fieldset>
+          <Group justify="flex-end" mt="md" grow>
+            <Button
+              type="submit"
+              disabled={!form.isDirty("organiser.name") || !form.isDirty("organiser.email")}
+            >
+              Preview Invitation
+            </Button>
           </Group>
-          <TextInput
-            withAsterisk
-            label="City"
-            placeholder="Duckburg"
-            disabled={
-              !props.form.isDirty("organiser.name") ||
-              !props.form.isDirty("organiser.email")
-            }
-            key={props.form.key("location.city")}
-            {...props.form.getInputProps("location.city")}
-          />
-        </Fieldset>
-        <Fieldset legend="Dress code">
-          <ColorInput
-            label={"Primary color"}
-            disabled={
-              !props.form.isDirty("organiser.name") ||
-              !props.form.isDirty("organiser.email")
-            }
-            placeholder="#a1589f"
-            key={props.form.key("additionalInformation.dressCode.primaryColor")}
-            {...props.form.getInputProps(
-              "additionalInformation.dressCode.primaryColor"
-            )}
-          />
-          <ColorInput
-            label={"Secondary color"}
-            disabled={
-              !props.form.isDirty("organiser.name") ||
-              !props.form.isDirty("organiser.email")
-            }
-            placeholder="#1f97b5"
-            key={props.form.key(
-              "additionalInformation.dressCode.secondaryColor"
-            )}
-            {...props.form.getInputProps(
-              "additionalInformation.dressCode.secondaryColor"
-            )}
-          />
-        </Fieldset>
-        <Fieldset legend="Additional information">
-          <Textarea
-            disabled={
-              !props.form.isDirty("organiser.name") ||
-              !props.form.isDirty("organiser.email")
-            }
-            label="Comments"
-            placeholder=""
-            key={props.form.key("comments")}
-            {...props.form.getInputProps("comments")}
-          />
-        </Fieldset>
-        <Group justify="flex-end" mt="md" grow>
-          <Button
-            type="submit"
-            disabled={
-              !props.form.isDirty("organiser.name") ||
-              !props.form.isDirty("organiser.email")
-            }
-          >
-            Preview Invitation
-          </Button>
-        </Group>
-      </form>
-    </Card>
+        </form>
+      </Card>
+    </>
   );
 }
