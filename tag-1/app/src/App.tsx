@@ -10,64 +10,29 @@ import {
   Grid,
   Group,
   MantineProvider,
-  Modal,
   Popover,
-  ScrollArea,
   SimpleGrid,
   Stack,
   Text,
   TextInput,
   Title,
 } from "@mantine/core";
-import "@mantine/core/styles.css";
-import { useForm } from "@mantine/form";
-import { useDisclosure } from "@mantine/hooks";
+import { DateValue } from "@mantine/dates";
 import { useCallback, useState } from "react";
-import { ARTISTS } from "./cards/constants";
+import CalendarCard from "./cards/CalendarCard";
+import { ARTISTS, TIMESLOTS } from "./cards/constants";
 import FingerFoodCard from "./cards/FingerFoodCard";
-import FormCard, { PartyForm } from "./cards/FormCard";
+import FormCard from "./cards/FormCard";
 import PlaylistCard from "./cards/PlaylistCard";
 import { theme } from "./theme";
 
+import "@mantine/core/styles.css";
+
 export default function App() {
-  const [opened, { open, close }] = useDisclosure(false);
-  const [date, setDate] = useState(new Date());
-  const [selectedArtists, setSelectedArtists] = useState<
-    (typeof ARTISTS)[number][]
-  >([]);
-  const form = useForm<PartyForm>({
-    mode: "uncontrolled",
-    initialValues: {
-      organiser: {
-        name: "",
-        email: "",
-      },
-      location: {
-        city: "",
-        street: "",
-        streetNumber: 42,
-      },
-      additionalInformation: {
-        dressCode: {
-          primaryColor: "#a1589f",
-          secondaryColor: "#1f97b5",
-        },
-        comments: "",
-      },
-    },
-    validate: {
-      organiser: {
-        email: (value) => (/^\S+@\S+$/.test(value) ? null : "Invalid email"),
-        name: (value) => (value.length > 0 ? null : "Name required"),
-      },
-      location: {
-        street: (value) => (value.length > 0 ? null : "Street required"),
-        streetNumber: (value) =>
-          value > 0 ? null : "Street number must be greater than 0",
-        city: (value) => (value.length > 0 ? null : "City required"),
-      },
-    },
-  });
+  const [date, setDate] = useState<DateValue>(new Date());
+  const [time, setTime] = useState<DateValue>(TIMESLOTS[0]);
+
+  const [selectedArtists, setSelectedArtists] = useState<(typeof ARTISTS)[number][]>([]);
 
   const updateArtist = useCallback(
     (artist: (typeof ARTISTS)[number]) => {
@@ -82,23 +47,7 @@ export default function App() {
   );
 
   return (
-    <MantineProvider theme={theme} defaultColorScheme="dark">
-      <Modal
-        opened={opened}
-        onClose={close}
-        // title={<Title order={2}>About Mantine Theme Builder</Title>}
-        // title={"About the project"}
-        size={"xl"}
-        centered
-        // scrollAreaComponent={ScrollArea.Autosize}
-        styles={{ content: { paddingTop: "0rem" } }}
-      >
-        <ScrollArea h={"600px"} pe={"sm"} pl="md" pr="xl">
-          <Text>
-            Hello my name is <p>Someone</p>
-          </Text>
-        </ScrollArea>
-      </Modal>
+    <MantineProvider theme={theme} defaultColorScheme="auto">
       <Container size={"xl"} p={{ sm: "md", md: "xl" }} h={"100%"} mt={"sm"}>
         <Title order={1}>
           <Center>Party Planner</Center>
@@ -129,11 +78,15 @@ export default function App() {
                   <Text ta="center">Aligned to center</Text>
                   <Text ta="right">Aligned to right</Text>
                   <span>
-                    I am a link:{" "}
-                    <Anchor href="https://example.org">link</Anchor>
+                    I am a link: <Anchor href="https://example.org">link</Anchor>
                   </span>
                 </Card>
-                <Button onClick={open}>Open Modal</Button>
+                <CalendarCard
+                  onDateChange={setDate}
+                  onTimeChange={setTime}
+                  selectedDate={date}
+                  selectedTime={time}
+                />
                 <SimpleGrid cols={{ lg: 2 }} spacing="md">
                   <Stack gap="md">
                     <Card>
@@ -147,11 +100,7 @@ export default function App() {
                         <Stack gap="lg">
                           <Group justify="space-between">
                             <Group>
-                              <Avatar
-                                src="/avatars/01.png"
-                                alt="Image"
-                                radius="xl"
-                              />
+                              <Avatar src="/avatars/01.png" alt="Image" radius="xl" />
                               <div>
                                 <Text size="sm" fw={500}>
                                   Sofia Davis
@@ -161,12 +110,7 @@ export default function App() {
                                 </Text>
                               </div>
                             </Group>
-                            <Popover
-                              width={200}
-                              position="bottom-end"
-                              withArrow
-                              shadow="md"
-                            >
+                            <Popover width={200} position="bottom-end" withArrow shadow="md">
                               <Popover.Target>
                                 <Button
                                   variant="default"
@@ -202,11 +146,7 @@ export default function App() {
                           </Group>
                           <Group justify="space-between">
                             <Group>
-                              <Avatar
-                                src="/avatars/02.png"
-                                alt="Image"
-                                radius="xl"
-                              />
+                              <Avatar src="/avatars/02.png" alt="Image" radius="xl" />
                               <div>
                                 <Text size="sm" fw={500}>
                                   Jackson Lee
@@ -216,12 +156,7 @@ export default function App() {
                                 </Text>
                               </div>
                             </Group>
-                            <Popover
-                              width={200}
-                              position="bottom-end"
-                              withArrow
-                              shadow="md"
-                            >
+                            <Popover width={200} position="bottom-end" withArrow shadow="md">
                               <Popover.Target>
                                 <Button
                                   variant="default"
@@ -257,11 +192,7 @@ export default function App() {
                           </Group>
                           <Group justify="space-between">
                             <Group>
-                              <Avatar
-                                src="/avatars/03.png"
-                                alt="Image"
-                                radius="xl"
-                              />
+                              <Avatar src="/avatars/03.png" alt="Image" radius="xl" />
                               <div>
                                 <Text size="sm" fw={500}>
                                   Isabella Nguyen
@@ -271,12 +202,7 @@ export default function App() {
                                 </Text>
                               </div>
                             </Group>
-                            <Popover
-                              width={200}
-                              position="bottom-end"
-                              withArrow
-                              shadow="md"
-                            >
+                            <Popover width={200} position="bottom-end" withArrow shadow="md">
                               <Popover.Target>
                                 <Button
                                   variant="default"
@@ -328,11 +254,8 @@ export default function App() {
             <Grid.Col span={{ sm: 6, md: 6, lg: 6 }}>
               <Stack gap="md">
                 <FingerFoodCard date={date} />
-                <PlaylistCard
-                  selectedArtists={selectedArtists}
-                  onArtistSelected={updateArtist}
-                />
-                <FormCard form={form} />
+                <PlaylistCard selectedArtists={selectedArtists} onArtistSelected={updateArtist} />
+                <FormCard selectedDay={date} selectedTime={time} />
 
                 {/* <CardsCalendar /> */}
                 {/* <CardsActivityGoal /> */}
