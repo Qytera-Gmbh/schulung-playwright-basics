@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="153.88231mm"
+   height="153.88231mm"
+   viewBox="0 0 153.88231 153.88231"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.2 (b8e25be833, 2022-02-05)"
+   sodipodi:docname="banana-buffets.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="0.74029882"
+     inkscape:cx="174.92936"
+     inkscape:cy="236.39103"
+     inkscape:window-width="1920"
+     inkscape:window-height="1137"
+     inkscape:window-x="1912"
+     inkscape:window-y="-134"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-75.668951,-24.56065)">
+    <rect
+       style="fill:#ffca00;fill-opacity:1;stroke:#ffffff;stroke-width:0.2;stroke-linejoin:round;stroke-miterlimit:4.5"
+       id="rect2117"
+       width="153.68231"
+       height="153.68231"
+       x="75.768951"
+       y="24.66065" />
+    <path
+       style="fill:#1a1a1a;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 172.32117,45.225406 c -1.86803,-1.30067 7.18831,-6.901598 7.83434,-6.318012 2.92415,2.641498 3.0878,8.552681 6.82345,13.394184 3.73565,4.841503 12.14756,9.145786 16.17411,14.405068 4.02655,5.259282 8.08706,16.174109 8.08706,16.174109 -19.59774,17.449705 -10.99376,32.869125 -2.77993,40.940715 -19.38017,45.29833 -93.59139,55.43521 -114.482377,14.9105 l 4.548968,-6.82345 c 43.500259,9.29201 76.546489,-15.32217 80.112399,-42.709754 3.56591,-27.387593 3.51824,-25.578229 3.06423,-28.968083 -0.45401,-3.389854 -4.11698,-11.339182 -9.38225,-15.005277 z"
+       id="path869"
+       sodipodi:nodetypes="sszzcccczzs" />
+  </g>
+</svg>
