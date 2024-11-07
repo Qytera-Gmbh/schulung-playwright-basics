@@ -1,4 +1,5 @@
 import { Divider, Modal, Progress, Space, Text, Title } from "@mantine/core";
+import { DateValue } from "@mantine/dates";
 import { PartyForm } from "../../cards/FormCard";
 import "./modal.css";
 
@@ -6,6 +7,8 @@ export default function InvitationModal(props: {
   opened: boolean;
   data: PartyForm | null;
   onClose: () => void;
+  selectedDay: DateValue;
+  selectedTime: DateValue;
 }) {
   if (!props.data) {
     return null;
@@ -39,7 +42,14 @@ export default function InvitationModal(props: {
       <Divider my="md" />
       <Title order={4}>📅 Date & Time</Title>
       <Text>
-        <Text span>{new Date().toLocaleString()}</Text>
+        {props.selectedDay && props.selectedTime ? (
+          <>
+            <Text span>{props.selectedDay.toLocaleDateString()}</Text>
+            <Text span> {props.selectedTime.toLocaleTimeString()}</Text>
+          </>
+        ) : (
+          "Not yet chosen"
+        )}
       </Text>
       <Divider my="md" />
       <Title order={4}>💃 Dress Code</Title>

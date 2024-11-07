@@ -12,6 +12,7 @@ import {
   Title,
 } from "@mantine/core";
 import "@mantine/core/styles.css";
+import { DateValue } from "@mantine/dates";
 import { useForm } from "@mantine/form";
 import { useDisclosure } from "@mantine/hooks";
 import { useState } from "react";
@@ -36,7 +37,7 @@ export interface PartyForm {
   };
 }
 
-export default function FormCard() {
+export default function FormCard(props: { selectedDay: DateValue; selectedTime: DateValue }) {
   const [invitationModalOpened, invitationModalCallbacks] = useDisclosure(false);
   const [submittedValues, setSubmittedValues] = useState<PartyForm | null>(null);
   const form = useForm<PartyForm>({
@@ -78,6 +79,8 @@ export default function FormCard() {
         opened={invitationModalOpened}
         onClose={invitationModalCallbacks.close}
         data={submittedValues}
+        selectedDay={props.selectedDay}
+        selectedTime={props.selectedTime}
       />
       <Card>
         <Title order={3}>
