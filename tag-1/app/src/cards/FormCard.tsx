@@ -98,6 +98,7 @@ export default function FormCard(props: { selectedDay: DateValue; selectedTime: 
               withAsterisk
               label="Name"
               placeholder="Jane Doe"
+              data-testid="inputFieldNameOrganizer"
               key={form.key("organiser.name")}
               {...form.getInputProps("organiser.name")}
             />
@@ -105,6 +106,7 @@ export default function FormCard(props: { selectedDay: DateValue; selectedTime: 
               withAsterisk
               label="Email"
               placeholder="your@email.com"
+              data-testid="inputFieldEMailOrganizer"
               key={form.key("organiser.email")}
               {...form.getInputProps("organiser.email")}
             />
