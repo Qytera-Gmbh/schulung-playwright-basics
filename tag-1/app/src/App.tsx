@@ -55,7 +55,9 @@ export default function App() {
             <Grid.Col span={{ sm: 6, md: 6, lg: 6 }}>
               <Stack gap="md">
                 <Card>
-                  <Title order={3}>{"Welcome to the Party Planner demo app!"}</Title>
+                  <Title data-testid="titleNameOfTheSite" order={3}>
+                    {"Welcome to the Party Planner demo app!"}
+                  </Title>
                   <Divider my="md" />
                   <Text size="md">
                     {
