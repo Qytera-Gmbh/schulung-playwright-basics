@@ -148,33 +148,37 @@ export default function FormCard(props: { selectedDay: DateValue; selectedTime: 
                 </Stack>
               </Fieldset>
               <Fieldset legend="Dress code">
-                <ColorInput
-                  label={"Primary color"}
-                  data-testid="colorPicker PrimaryColor"
-                  disabled={!form.isDirty("organiser.name") || !form.isDirty("organiser.email")}
-                  placeholder="#a1589f"
-                  key={form.key("dressCode.primaryColor")}
-                  {...form.getInputProps("dressCode.primaryColor")}
-                />
-                <ColorInput
-                  label={"Secondary color"}
-                  data-testid="colorPicker SecondaryColor"
-                  disabled={!form.isDirty("organiser.name") || !form.isDirty("organiser.email")}
-                  placeholder="#1f97b5"
-                  key={form.key("dressCode.secondaryColor")}
-                  {...form.getInputProps("dressCode.secondaryColor")}
-                />
+                <Stack gap="lg">
+                  <ColorInput
+                    label={"Primary color"}
+                    data-testid="colorPicker PrimaryColor"
+                    disabled={!form.isDirty("organiser.name") || !form.isDirty("organiser.email")}
+                    placeholder="#a1589f"
+                    key={form.key("dressCode.primaryColor")}
+                    {...form.getInputProps("dressCode.primaryColor")}
+                  />
+                  <ColorInput
+                    label={"Secondary color"}
+                    data-testid="colorPicker SecondaryColor"
+                    disabled={!form.isDirty("organiser.name") || !form.isDirty("organiser.email")}
+                    placeholder="#1f97b5"
+                    key={form.key("dressCode.secondaryColor")}
+                    {...form.getInputProps("dressCode.secondaryColor")}
+                  />
+                </Stack>
               </Fieldset>
               <Fieldset legend="Additional information">
-                <Textarea
-                  disabled={!form.isDirty("organiser.name") || !form.isDirty("organiser.email")}
-                  label="Comments"
-                  placeholder=""
-                  key={form.key("additionalInformation.comments")}
-                  {...form.getInputProps("additionalInformation.comments")}
-                />
+                <Stack gap="lg">
+                  <Textarea
+                    disabled={!form.isDirty("organiser.name") || !form.isDirty("organiser.email")}
+                    label="Comments"
+                    placeholder=""
+                    key={form.key("additionalInformation.comments")}
+                    {...form.getInputProps("additionalInformation.comments")}
+                  />
+                </Stack>
               </Fieldset>
-              <Group justify="flex-end" mt="md" grow>
+              <Group gap="lg" justify="flex-end" mt="md" grow>
                 <Button
                   type="submit"
                   disabled={!form.isDirty("organiser.name") || !form.isDirty("organiser.email")}
