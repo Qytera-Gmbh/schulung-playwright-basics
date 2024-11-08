@@ -10,7 +10,7 @@ import {
   Text,
   Title,
 } from "@mantine/core";
-import { CATERERS } from "./constants";
+import { CATERERS } from "../constants";
 
 export default function CatererCard(props: {
   caterers: (typeof CATERERS)[number][];

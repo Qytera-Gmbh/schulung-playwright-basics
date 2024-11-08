@@ -34,7 +34,7 @@ export const CATERERS = [
   },
 ];
 
-export const TIMESLOTS = [
+export const TIMESLOTS: Date[] = [
   getDate({ hour: 17, minute: 0 }),
   getDate({ hour: 17, minute: 30 }),
   getDate({ hour: 18, minute: 0 }),
@@ -44,14 +44,30 @@ export const TIMESLOTS = [
   getDate({ hour: 20, minute: 0 }),
 ];
 
-function getDate({ hour, minute }: { hour: number; minute: number }) {
+function getDate({
+  year,
+  month,
+  day,
+  hour,
+  minute,
+  second,
+  millisecond,
+}: {
+  year?: number;
+  month?: number;
+  day?: number;
+  hour?: number;
+  minute?: number;
+  second?: number;
+  millisecond?: number;
+}) {
   const date = new Date();
-  date.setFullYear(0);
-  date.setMonth(0);
-  date.setDate(0);
-  date.setHours(hour);
-  date.setMinutes(minute);
-  date.setSeconds(0);
-  date.setMilliseconds(0);
+  date.setFullYear(year ?? 0);
+  date.setMonth(month ?? 0);
+  date.setDate(day ?? 0);
+  date.setHours(hour ?? 0);
+  date.setMinutes(minute ?? 0);
+  date.setSeconds(second ?? 0);
+  date.setMilliseconds(millisecond ?? 0);
   return date;
 }

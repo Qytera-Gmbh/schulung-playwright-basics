@@ -14,10 +14,10 @@ import {
 import { DateValue } from "@mantine/dates";
 import { useCallback, useState } from "react";
 import CalendarCard from "./cards/CalendarCard";
-import { ARTISTS, CATERERS, TIMESLOTS } from "./cards/constants";
 import FingerFoodCard from "./cards/FingerFoodCard";
 import FormCard from "./cards/FormCard";
 import PlaylistCard from "./cards/PlaylistCard";
+import { ARTISTS, CATERERS, TIMESLOTS } from "./constants";
 import { theme } from "./theme";
 
 import "@mantine/core/styles.css";
