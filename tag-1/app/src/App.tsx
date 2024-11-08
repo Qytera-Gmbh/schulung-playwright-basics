@@ -6,6 +6,7 @@ import {
   Divider,
   Grid,
   MantineProvider,
+  Space,
   Stack,
   Text,
   Title,
@@ -13,10 +14,10 @@ import {
 import { DateValue } from "@mantine/dates";
 import { useCallback, useState } from "react";
 import CalendarCard from "./cards/CalendarCard";
-import { ARTISTS, CATERERS, TIMESLOTS } from "./cards/constants";
 import FingerFoodCard from "./cards/FingerFoodCard";
 import FormCard from "./cards/FormCard";
 import PlaylistCard from "./cards/PlaylistCard";
+import { ARTISTS, CATERERS, TIMESLOTS } from "./constants";
 import { theme } from "./theme";
 
 import "@mantine/core/styles.css";
@@ -46,7 +47,7 @@ export default function App() {
     <MantineProvider theme={theme} defaultColorScheme="auto">
       <Container size={"xl"} p={{ sm: "md", md: "xl" }} h={"100%"} mt={"sm"}>
         <Title order={1}>
-          <Center>Party Planner</Center>
+          <Center>{"Party Planner Demo"}</Center>
           <hr />
         </Title>
         <Stack h={"100%"} w={"100%"}>
@@ -54,28 +55,33 @@ export default function App() {
             <Grid.Col span={{ sm: 6, md: 6, lg: 6 }}>
               <Stack gap="md">
                 <Card>
-                  <Title order={3}>Text</Title>
+                  <Title order={3}>{"Welcome to the Party Planner demo app!"}</Title>
                   <Divider my="md" />
-                  <Text size="xs">Extra small text</Text>
-                  <Text size="sm">Small text</Text>
-                  <Text size="md">Default text</Text>
-                  <Text size="lg">Large text</Text>
-                  <Text size="xl">Extra large text</Text>
-                  <Text fw={500}>Semibold</Text>
-                  <Text fw={700}>Bold</Text>
-                  <Text fs="italic">Italic</Text>
-                  <Text td="underline">Underlined</Text>
-                  <Text td="line-through">Strikethrough</Text>
-                  <Text c="dimmed">Dimmed text</Text>
-                  <Text c="blue">Blue text</Text>
-                  <Text c="teal.4">Teal 4 text</Text>
-                  <Text tt="uppercase">Uppercase</Text>
-                  <Text tt="capitalize">capitalized text</Text>
-                  <Text ta="center">Aligned to center</Text>
-                  <Text ta="right">Aligned to right</Text>
-                  <span>
-                    I am a link: <Anchor href="https://example.org">link</Anchor>
-                  </span>
+                  <Text size="md">
+                    {
+                      "Here, you can explore options for catering, customize your menu, and design beautiful invitation cards tailored to your special occasion. Try out each feature to see how easy it is to create an unforgettable event!"
+                    }
+                  </Text>
+                  <Space h="sm" />
+                  <Text size="xs" c="dimmed">
+                    <Text span>{" Credit to "}</Text>
+                    <Anchor href="https://chatgpt.com/" target="_blank">
+                      {"ChatGPT"}
+                    </Anchor>
+                    <Text span>
+                      {
+                        " for the snappy texts \u2014 turns out, even AI knows how to party! Built with "
+                      }
+                    </Text>
+                    <Anchor href="https://vuejs.org/" target="_blank">
+                      {"Vue.js"}
+                    </Anchor>
+                    <Text span>{" and "}</Text>
+                    <Anchor href="https://matine.dev" target="_blank">
+                      {"Mantine"}
+                    </Anchor>
+                    <Text span>{"."}</Text>
+                  </Text>
                 </Card>
                 <CalendarCard
                   onDateChange={setDate}
