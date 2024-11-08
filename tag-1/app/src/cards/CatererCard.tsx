@@ -32,7 +32,7 @@ export default function CatererCard(props: {
               <Stack gap="lg">
                 {props.caterers.map((caterer) => {
                   return (
-                    <Group>
+                    <Group data-testid="caterer">
                       <Radio value={caterer.email} />
                       <Avatar src={caterer.avatar} alt="Image" radius="xl" />
                       <div>
