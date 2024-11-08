@@ -23,14 +23,14 @@ export const CATERERS = [
     name: "Munch Masters",
     email: "munch-masters@example.com",
     description:
-      "Your go-to team for delicious bites and unforgettable feasts. With flavors that satisfy and presentations that impress, we’re here to make every munch a moment to remember!",
+      "Your go-to team for delicious bites and unforgettable feasts. With flavors that satisfy and presentations that impress, we\u2019re here to make every munch a moment to remember!",
   },
   {
     avatar: "/avatars/banana-buffets.svg",
     name: "Banana Buffets",
     email: "banana-buffets@example.com",
     description:
-      "We bring fun, flavor, and a touch of the unexpected to every spread, with dishes that are as lively as they are delicious. Whether you’re after tropical vibes or classic comfort, we’ve got you covered with a buffet that’s truly a-peel-ing!",
+      "We bring fun, flavor, and a touch of the unexpected to every spread, with dishes that are as lively as they are delicious. Whether you\u2019re after tropical vibes or classic comfort, we\u2019ve got you covered with a buffet that\u2019s truly a-peel-ing!",
   },
 ];
 
