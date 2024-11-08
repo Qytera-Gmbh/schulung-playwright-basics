@@ -47,7 +47,7 @@ export default function App() {
     <MantineProvider theme={theme} defaultColorScheme="auto">
       <Container size={"xl"} p={{ sm: "md", md: "xl" }} h={"100%"} mt={"sm"}>
         <Title order={1}>
-          <Center>Party Planner Demo</Center>
+          <Center>{"Party Planner Demo"}</Center>
           <hr />
         </Title>
         <Stack h={"100%"} w={"100%"}>
@@ -55,24 +55,32 @@ export default function App() {
             <Grid.Col span={{ sm: 6, md: 6, lg: 6 }}>
               <Stack gap="md">
                 <Card>
-                  <Title order={3}>Welcome to the Party Planner demo app!</Title>
+                  <Title order={3}>{"Welcome to the Party Planner demo app!"}</Title>
                   <Divider my="md" />
                   <Text size="md">
-                    Here, you can explore options for catering, customize your menu, and design
-                    beautiful invitation cards tailored to your special occasion. Try out each
-                    feature to see how easy it is to create an unforgettable event!
+                    {
+                      "Here, you can explore options for catering, customize your menu, and design beautiful invitation cards tailored to your special occasion. Try out each feature to see how easy it is to create an unforgettable event!"
+                    }
                   </Text>
                   <Space h="sm" />
                   <Text size="xs" c="dimmed">
+                    <Text span>{" Credit to "}</Text>
+                    <Anchor href="https://chatgpt.com/" target="_blank">
+                      {"ChatGPT"}
+                    </Anchor>
                     <Text span>
-                      Credit to <Anchor href="https://chatgpt.com/">ChatGPT</Anchor> for the snappy
-                      texts &mdash; turns out, even AI knows how to party!
+                      {
+                        " for the snappy texts \u2014 turns out, even AI knows how to party! Built with "
+                      }
                     </Text>
-                    <Text span>&nbsp;</Text>
-                    <Text span>
-                      Built with <Anchor href="https://vuejs.org/">Vue.js</Anchor> and{" "}
-                      <Anchor href="https://matine.dev">Mantine</Anchor>.
-                    </Text>
+                    <Anchor href="https://vuejs.org/" target="_blank">
+                      {"Vue.js"}
+                    </Anchor>
+                    <Text span>{" and "}</Text>
+                    <Anchor href="https://matine.dev" target="_blank">
+                      {"Mantine"}
+                    </Anchor>
+                    <Text span>{"."}</Text>
                   </Text>
                 </Card>
                 <CalendarCard
