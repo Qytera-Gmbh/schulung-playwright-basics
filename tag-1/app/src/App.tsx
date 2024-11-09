@@ -22,6 +22,7 @@ import { theme } from "./theme";
 
 import "@mantine/core/styles.css";
 import CatererCard from "./cards/CatererCard";
+import DiscountCard from "./cards/DiscountCard";
 
 export default function App() {
   const [date, setDate] = useState<DateValue>(new Date());
@@ -102,6 +103,7 @@ export default function App() {
                     setSelectedCaterer(caterer);
                   }}
                 />
+                <DiscountCard />
               </Stack>
             </Grid.Col>
 
