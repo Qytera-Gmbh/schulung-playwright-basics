@@ -77,6 +77,7 @@ export default function FormCard(props: { selectedDay: DateValue; selectedTime: 
   return (
     <>
       <InvitationModal
+        data-testid="fewfewfewfefgewfg"
         opened={invitationModalOpened}
         onClose={invitationModalCallbacks.close}
         data={submittedValues}
@@ -122,6 +123,7 @@ export default function FormCard(props: { selectedDay: DateValue; selectedTime: 
                 <Stack gap="lg">
                   <Group gap="lg">
                     <TextInput
+                      data-testid="main-street-boulevard"
                       withAsterisk
                       disabled={!form.isDirty("organiser.name") || !form.isDirty("organiser.email")}
                       label="Street"
@@ -131,6 +133,7 @@ export default function FormCard(props: { selectedDay: DateValue; selectedTime: 
                       {...form.getInputProps("location.street")}
                     />
                     <NumberInput
+                      data-testid="main-street-boulevard-number"
                       withAsterisk
                       disabled={!form.isDirty("organiser.name") || !form.isDirty("organiser.email")}
                       label="Street Number"
@@ -140,6 +143,7 @@ export default function FormCard(props: { selectedDay: DateValue; selectedTime: 
                     />
                   </Group>
                   <TextInput
+                    data-testid="main-city-name"
                     withAsterisk
                     label="City"
                     placeholder="Duckburg"
@@ -153,7 +157,7 @@ export default function FormCard(props: { selectedDay: DateValue; selectedTime: 
                 <Stack gap="lg">
                   <ColorInput
                     label={"Primary color"}
-                    data-testid="colorPicker PrimaryColor"
+                    data-testid="colorPicker-PrimaryColor"
                     disabled={!form.isDirty("organiser.name") || !form.isDirty("organiser.email")}
                     placeholder="#a1589f"
                     key={form.key("dressCode.primaryColor")}
@@ -161,7 +165,7 @@ export default function FormCard(props: { selectedDay: DateValue; selectedTime: 
                   />
                   <ColorInput
                     label={"Secondary color"}
-                    data-testid="colorPicker SecondaryColor"
+                    data-testid="colorPicker-SecondaryColor"
                     disabled={!form.isDirty("organiser.name") || !form.isDirty("organiser.email")}
                     placeholder="#1f97b5"
                     key={form.key("dressCode.secondaryColor")}
@@ -172,6 +176,7 @@ export default function FormCard(props: { selectedDay: DateValue; selectedTime: 
               <Fieldset legend="Additional information">
                 <Stack gap="lg">
                   <Textarea
+                    data-testid="comments-field"
                     disabled={!form.isDirty("organiser.name") || !form.isDirty("organiser.email")}
                     label="Comments"
                     placeholder=""
@@ -182,6 +187,7 @@ export default function FormCard(props: { selectedDay: DateValue; selectedTime: 
               </Fieldset>
               <Group gap="lg" justify="flex-end" mt="md" grow>
                 <Button
+                  data-testid="submit-button-preview"
                   type="submit"
                   disabled={!form.isDirty("organiser.name") || !form.isDirty("organiser.email")}
                 >
