@@ -34,7 +34,9 @@ export default function CalendarCard(props: {
   return (
     <Card>
       <Box>
-        <Title order={5}>Date</Title>
+        <Title order={5} data-testid="ewfwefwefwefewfewf">
+          Date
+        </Title>
         <Text size="sm" c="dimmed">
           Select the party date and time.
         </Text>
@@ -42,11 +44,13 @@ export default function CalendarCard(props: {
       <Box mt="lg">
         <Stack gap="lg">
           <DatePickerInput
+            data-testid="party-date-field"
             value={props.selectedDate}
             onChange={props.onDateChange}
             label="Party Date"
           />
           <NativeSelect
+            data-testid="party-time-field"
             label="Party Time"
             data={[...dates.keys()]}
             value={props.selectedTime ? formattedDates.get(props.selectedTime) : undefined}
