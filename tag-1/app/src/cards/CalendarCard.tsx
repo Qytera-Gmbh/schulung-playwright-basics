@@ -34,9 +34,7 @@ export default function CalendarCard(props: {
   return (
     <Card>
       <Box>
-        <Title order={5} data-testid="ewfwefwefwefewfewf">
-          Date
-        </Title>
+        <Title order={5}>Date</Title>
         <Text size="sm" c="dimmed">
           Select the party date and time.
         </Text>
