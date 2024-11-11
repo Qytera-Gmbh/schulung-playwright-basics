@@ -19,7 +19,11 @@ export default function InvitationModal(props: {
       opened={props.opened}
       onClose={props.onClose}
       // title={<Title order={2}>About Mantine Theme Builder</Title>}
-      title={<Title order={3}>You're Invited to a Night of Fun and Festivities! 🥳</Title>}
+      title={
+        <Title order={3} data-testid="header-invitation-modal">
+          You're Invited to a Night of Fun and Festivities! 🥳
+        </Title>
+      }
       size={"xl"}
       centered
       // scrollAreaComponent={ScrollArea.Autosize}
@@ -27,25 +31,37 @@ export default function InvitationModal(props: {
     >
       <Space h="lg" />
       <Title order={4}>👋 Host</Title>
-      <Text>Name: {props.data.organiser.name}</Text>
-      <Text>
+      <Text data-testid="name-host">Name: {props.data.organiser.name}</Text>
+      <Text data-testid="mail-host">
         Contact: <a href={`mailto:${props.data.organiser.email}`}>{props.data.organiser.email}</a>
       </Text>
       <Divider my="md" />
       <Title order={4}>🗺 When & Where</Title>
       <Text>
         <Text span>Location: </Text>
-        <Text span>{props.data.location.city}</Text>
-        <Text span>, {props.data.location.street}</Text>
-        <Text span> {props.data.location.streetNumber}</Text>
+        <Text span data-testid="whenwhere-city">
+          {props.data.location.city}
+        </Text>
+        <Text span data-testid="whenwhere-street">
+          , {props.data.location.street}
+        </Text>
+        <Text span data-testid="whenwhere-street-number">
+          {" "}
+          {props.data.location.streetNumber}
+        </Text>
       </Text>
       <Divider my="md" />
       <Title order={4}>📅 Date & Time</Title>
       <Text>
         {props.selectedDay && props.selectedTime ? (
           <>
-            <Text span>{props.selectedDay.toLocaleDateString()}</Text>
-            <Text span> {props.selectedTime.toLocaleTimeString()}</Text>
+            <Text span data-testid="date-time-local-date">
+              {props.selectedDay.toLocaleDateString()}
+            </Text>
+            <Text span data-testid="date-time-local-time">
+              {" "}
+              {props.selectedTime.toLocaleTimeString()}
+            </Text>
           </>
         ) : (
           "Not yet chosen"
@@ -56,11 +72,21 @@ export default function InvitationModal(props: {
       <Text>
         <Text span>
           <Text span>Come dressed in our theme colors: </Text>
-          <Text span c={props.data.dressCode.primaryColor} fw={500}>
+          <Text
+            span
+            c={props.data.dressCode.primaryColor}
+            fw={500}
+            data-testid="dress-code-primary-color"
+          >
             {props.data.dressCode.primaryColor}
           </Text>
           <Text span> and </Text>
-          <Text span c={props.data.dressCode.secondaryColor} fw={500}>
+          <Text
+            span
+            c={props.data.dressCode.secondaryColor}
+            fw={500}
+            data-testid="dress-code-secondary-color"
+          >
             {props.data.dressCode.secondaryColor}
           </Text>
           <Text span>! </Text>
@@ -89,7 +115,9 @@ export default function InvitationModal(props: {
         <>
           <Divider my="md" />
           <Title order={4}>Additional Details</Title>
-          <Text fs="italic">{props.data.additionalInformation.comments}</Text>
+          <Text fs="italic" data-testid="additional-details-entry">
+            {props.data.additionalInformation.comments}
+          </Text>
         </>
       ) : null}
     </Modal>
