@@ -77,7 +77,6 @@ export default function FormCard(props: { selectedDay: DateValue; selectedTime: 
   return (
     <>
       <InvitationModal
-        data-testid="fewfewfewfefgewfg"
         opened={invitationModalOpened}
         onClose={invitationModalCallbacks.close}
         data={submittedValues}
@@ -104,7 +103,7 @@ export default function FormCard(props: { selectedDay: DateValue; selectedTime: 
                   <TextInput
                     withAsterisk
                     label="Name"
-                    data-testid="inputFieldNameOrganizer"
+                    data-testid="input-field-name-organizer"
                     placeholder="Jane Doe"
                     key={form.key("organiser.name")}
                     {...form.getInputProps("organiser.name")}
@@ -112,7 +111,7 @@ export default function FormCard(props: { selectedDay: DateValue; selectedTime: 
                   <TextInput
                     withAsterisk
                     label="Email"
-                    data-testid="inputFieldEMailOrganizer"
+                    data-testid="input-field-email-organizer"
                     placeholder="your@email.com"
                     key={form.key("organiser.email")}
                     {...form.getInputProps("organiser.email")}
@@ -157,7 +156,7 @@ export default function FormCard(props: { selectedDay: DateValue; selectedTime: 
                 <Stack gap="lg">
                   <ColorInput
                     label={"Primary color"}
-                    data-testid="colorPicker-PrimaryColor"
+                    data-testid="colorPicker-primary-color"
                     disabled={!form.isDirty("organiser.name") || !form.isDirty("organiser.email")}
                     placeholder="#a1589f"
                     key={form.key("dressCode.primaryColor")}
@@ -165,7 +164,7 @@ export default function FormCard(props: { selectedDay: DateValue; selectedTime: 
                   />
                   <ColorInput
                     label={"Secondary color"}
-                    data-testid="colorPicker-SecondaryColor"
+                    data-testid="colorPicker-secondary-color"
                     disabled={!form.isDirty("organiser.name") || !form.isDirty("organiser.email")}
                     placeholder="#1f97b5"
                     key={form.key("dressCode.secondaryColor")}
