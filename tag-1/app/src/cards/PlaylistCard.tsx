@@ -19,7 +19,7 @@ export default function PlaylistCard(props: {
           {ARTISTS.map((artist, index) => {
             return (
               <Chip
-                data-testid="artist-name-checkbox"
+                data-testid="chip-artist"
                 key={index}
                 checked={props.selectedArtists.includes(artist)}
                 onChange={() => props.onArtistSelected(artist)}
