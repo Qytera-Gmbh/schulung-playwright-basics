@@ -20,7 +20,7 @@ import { useState } from "react";
 import InvitationModal from "../modals/invitation-modal/InvitationModal";
 
 export interface PartyForm {
-  organiser: {
+  host: {
     name: string;
     email: string;
   };
@@ -44,7 +44,7 @@ export default function FormCard(props: { selectedDay: DateValue; selectedTime: 
   const form = useForm<PartyForm>({
     mode: "uncontrolled",
     initialValues: {
-      organiser: {
+      host: {
         name: "",
         email: "",
       },
@@ -62,7 +62,7 @@ export default function FormCard(props: { selectedDay: DateValue; selectedTime: 
       },
     },
     validate: {
-      organiser: {
+      host: {
         email: (value) => (/^\S+@\S+$/.test(value) ? null : "Invalid email"),
         name: (value) => (value.length > 0 ? null : "Name required"),
       },
@@ -98,33 +98,33 @@ export default function FormCard(props: { selectedDay: DateValue; selectedTime: 
             })}
           >
             <Stack gap="lg">
-              <Fieldset legend="Organizer">
+              <Fieldset legend="Host" data-testid="host">
                 <Stack gap="lg">
                   <TextInput
                     withAsterisk
                     label="Name"
-                    data-testid="input-field-name-organizer"
+                    data-testid="name"
                     placeholder="Jane Doe"
-                    key={form.key("organiser.name")}
-                    {...form.getInputProps("organiser.name")}
+                    key={form.key("host.name")}
+                    {...form.getInputProps("host.name")}
                   />
                   <TextInput
                     withAsterisk
                     label="Email"
-                    data-testid="input-field-email-organizer"
+                    data-testid="email"
                     placeholder="your@email.com"
-                    key={form.key("organiser.email")}
-                    {...form.getInputProps("organiser.email")}
+                    key={form.key("host.email")}
+                    {...form.getInputProps("host.email")}
                   />
                 </Stack>
               </Fieldset>
-              <Fieldset legend="Location">
+              <Fieldset legend="Location" data-testid="location">
                 <Stack gap="lg">
                   <Group gap="lg">
                     <TextInput
-                      data-testid="main-street-boulevard"
+                      data-testid="street"
                       withAsterisk
-                      disabled={!form.isDirty("organiser.name") || !form.isDirty("organiser.email")}
+                      disabled={!form.isDirty("host.name") || !form.isDirty("host.email")}
                       label="Street"
                       placeholder="Main Boulevard"
                       key={form.key("location.street")}
@@ -132,9 +132,9 @@ export default function FormCard(props: { selectedDay: DateValue; selectedTime: 
                       {...form.getInputProps("location.street")}
                     />
                     <NumberInput
-                      data-testid="main-street-boulevard-number"
+                      data-testid="streetnumber"
                       withAsterisk
-                      disabled={!form.isDirty("organiser.name") || !form.isDirty("organiser.email")}
+                      disabled={!form.isDirty("host.name") || !form.isDirty("host.email")}
                       label="Street Number"
                       key={form.key("location.streetNumber")}
                       style={{ flex: 1 }}
@@ -142,41 +142,41 @@ export default function FormCard(props: { selectedDay: DateValue; selectedTime: 
                     />
                   </Group>
                   <TextInput
-                    data-testid="main-city-name"
+                    data-testid="city"
                     withAsterisk
                     label="City"
                     placeholder="Duckburg"
-                    disabled={!form.isDirty("organiser.name") || !form.isDirty("organiser.email")}
+                    disabled={!form.isDirty("host.name") || !form.isDirty("host.email")}
                     key={form.key("location.city")}
                     {...form.getInputProps("location.city")}
                   />
                 </Stack>
               </Fieldset>
-              <Fieldset legend="Dress code">
+              <Fieldset legend="Dress code" data-testid="dresscode">
                 <Stack gap="lg">
                   <ColorInput
                     label={"Primary color"}
-                    data-testid="colorPicker-primary-color"
-                    disabled={!form.isDirty("organiser.name") || !form.isDirty("organiser.email")}
+                    data-testid="primary-color"
+                    disabled={!form.isDirty("host.name") || !form.isDirty("host.email")}
                     placeholder="#a1589f"
                     key={form.key("dressCode.primaryColor")}
                     {...form.getInputProps("dressCode.primaryColor")}
                   />
                   <ColorInput
                     label={"Secondary color"}
-                    data-testid="colorPicker-secondary-color"
-                    disabled={!form.isDirty("organiser.name") || !form.isDirty("organiser.email")}
+                    data-testid="secondary-color"
+                    disabled={!form.isDirty("host.name") || !form.isDirty("host.email")}
                     placeholder="#1f97b5"
                     key={form.key("dressCode.secondaryColor")}
                     {...form.getInputProps("dressCode.secondaryColor")}
                   />
                 </Stack>
               </Fieldset>
-              <Fieldset legend="Additional information">
+              <Fieldset legend="Additional information" data-testid="additional-information">
                 <Stack gap="lg">
                   <Textarea
-                    data-testid="comments-field"
-                    disabled={!form.isDirty("organiser.name") || !form.isDirty("organiser.email")}
+                    data-testid="comments"
+                    disabled={!form.isDirty("host.name") || !form.isDirty("host.email")}
                     label="Comments"
                     placeholder=""
                     key={form.key("additionalInformation.comments")}
@@ -186,9 +186,9 @@ export default function FormCard(props: { selectedDay: DateValue; selectedTime: 
               </Fieldset>
               <Group gap="lg" justify="flex-end" mt="md" grow>
                 <Button
-                  data-testid="submit-button-preview"
+                  data-testid="preview-invitation"
                   type="submit"
-                  disabled={!form.isDirty("organiser.name") || !form.isDirty("organiser.email")}
+                  disabled={!form.isDirty("host.name") || !form.isDirty("host.email")}
                 >
                   Preview Invitation
                 </Button>

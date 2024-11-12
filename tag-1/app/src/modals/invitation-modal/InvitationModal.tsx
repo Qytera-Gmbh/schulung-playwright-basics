@@ -31,9 +31,9 @@ export default function InvitationModal(props: {
     >
       <Space h="lg" />
       <Title order={4}>👋 Host</Title>
-      <Text data-testid="name-host">Name: {props.data.organiser.name}</Text>
+      <Text data-testid="name-host">Name: {props.data.host.name}</Text>
       <Text data-testid="mail-host">
-        Contact: <a href={`mailto:${props.data.organiser.email}`}>{props.data.organiser.email}</a>
+        Contact: <a href={`mailto:${props.data.host.email}`}>{props.data.host.email}</a>
       </Text>
       <Divider my="md" />
       <Title order={4}>🗺 When & Where</Title>

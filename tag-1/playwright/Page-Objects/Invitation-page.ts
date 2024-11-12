@@ -6,38 +6,40 @@ export class TitlePage {
   }
 
   inputFieldNameOrganizer() {
-    return this.page.getByTestId("input-field-name-organizer");
+    return this.page.getByTestId("host").getByTestId("name");
   }
 
   inputFieldEMailOrganizer() {
-    return this.page.getByTestId("input-field-email-organizer");
+    return this.page.getByTestId("host").getByTestId("email");
   }
 
   mainStreetBoulevard() {
-    return this.page.getByTestId("main-street-boulevard");
+    return this.page.getByTestId("location").getByTestId("street");
   }
 
   mainStreetBoulevardNumber() {
-    return this.page.getByTestId("main-street-boulevard-number");
+    return this.page.getByTestId("location").getByTestId("streetnumber");
   }
 
   mainCityName() {
-    return this.page.getByTestId("main-city-name");
+    return this.page.getByTestId("location").getByTestId("city");
   }
 
   colorPickerPrimaryColor() {
-    return this.page.getByTestId("colorPicker-primary-color");
+    return this.page.getByTestId("dresscode").getByTestId("primary-color");
   }
 
   colorPickerSecondaryColor() {
-    return this.page.getByTestId("colorPicker-secondary-color");
+    return this.page.getByTestId("dresscode").getByTestId("secondary-color");
   }
 
   commentsField() {
-    return this.page.getByTestId("comments-field");
+    return this.page
+      .getByTestId("additional-information")
+      .getByTestId("comments");
   }
 
   submitButtonPreview() {
-    return this.page.getByTestId("submit-button-preview");
+    return this.page.getByTestId("preview-invitation");
   }
 }
