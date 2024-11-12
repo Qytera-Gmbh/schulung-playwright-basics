@@ -120,6 +120,15 @@ export default function FormCard(props: { selectedDay: DateValue; selectedTime: 
               </Fieldset>
               <Fieldset legend="Location" data-testid="location">
                 <Stack gap="lg">
+                  <TextInput
+                    data-testid="city"
+                    withAsterisk
+                    label="City"
+                    placeholder="Duckburg"
+                    disabled={!form.isDirty("host.name") || !form.isDirty("host.email")}
+                    key={form.key("location.city")}
+                    {...form.getInputProps("location.city")}
+                  />
                   <Group gap="lg">
                     <TextInput
                       data-testid="street"
@@ -141,15 +150,6 @@ export default function FormCard(props: { selectedDay: DateValue; selectedTime: 
                       {...form.getInputProps("location.streetNumber")}
                     />
                   </Group>
-                  <TextInput
-                    data-testid="city"
-                    withAsterisk
-                    label="City"
-                    placeholder="Duckburg"
-                    disabled={!form.isDirty("host.name") || !form.isDirty("host.email")}
-                    key={form.key("location.city")}
-                    {...form.getInputProps("location.city")}
-                  />
                 </Stack>
               </Fieldset>
               <Fieldset legend="Dress code" data-testid="dresscode">
