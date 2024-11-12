@@ -7,7 +7,7 @@ export default defineConfig({
   testDir: "./tests",
   fullyParallel: true,
   retries: 0,
-  reporter: [["line"], ["html"]],
+  reporter: [["line"], ["html", { open: "on-failure" }]],
   use: {
     trace: "retain-on-failure",
   },
