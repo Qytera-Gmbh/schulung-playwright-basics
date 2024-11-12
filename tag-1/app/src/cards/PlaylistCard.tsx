@@ -1,5 +1,6 @@
 import { Box, Card, Chip, Group, Text, Title } from "@mantine/core";
 import "@mantine/core/styles.css";
+import { IconCheck } from "@tabler/icons-react";
 import { ARTISTS } from "../constants";
 
 export default function PlaylistCard(props: {
@@ -19,6 +20,7 @@ export default function PlaylistCard(props: {
           {ARTISTS.map((artist, index) => {
             return (
               <Chip
+                icon={<IconCheck size="sm" />}
                 data-testid="chip-artist"
                 key={index}
                 checked={props.selectedArtists.includes(artist)}
