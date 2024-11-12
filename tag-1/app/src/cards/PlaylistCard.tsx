@@ -20,8 +20,10 @@ export default function PlaylistCard(props: {
           {ARTISTS.map((artist, index) => {
             return (
               <Chip
-                icon={<IconCheck size="sm" />}
-                data-testid="chip-artist"
+                wrapperProps={{
+                  "data-testid": "chip-artist",
+                }}
+                icon={<IconCheck data-testid="check" size={16} />}
                 key={index}
                 checked={props.selectedArtists.includes(artist)}
                 onChange={() => props.onArtistSelected(artist)}

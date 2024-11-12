@@ -9,6 +9,7 @@ export default defineConfig({
   retries: 0,
   reporter: "line",
   use: {
+    actionTimeout: 4 * 1000,
     trace: "on-first-retry",
   },
   projects: [

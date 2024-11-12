@@ -9,6 +9,7 @@ export default defineConfig({
   retries: 0,
   reporter: [["line"], ["html", { open: "on-failure" }]],
   use: {
+    actionTimeout: 4 * 1000,
     trace: "retain-on-failure",
   },
   projects: [
