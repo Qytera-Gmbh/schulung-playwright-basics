@@ -42,11 +42,12 @@ export default function InvitationModal(props: {
         <Text span data-testid="whenwhere-city">
           {props.data.location.city}
         </Text>
+        <Text span>{", "}</Text>
         <Text span data-testid="whenwhere-street">
-          , {props.data.location.street}
+          {props.data.location.street}
         </Text>
+        <Text span> </Text>
         <Text span data-testid="whenwhere-street-number">
-          {" "}
           {props.data.location.streetNumber}
         </Text>
       </Text>
