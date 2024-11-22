@@ -1,6 +1,6 @@
 import { Page } from "@playwright/test";
 
-export class TitlePage {
+export class MusicCard {
   constructor(public page: Page) {
     this.page = page;
   }
