@@ -56,7 +56,7 @@ export class InvitationPreviewModal {
    * 
    * @returns the description
    */
-  public getDresscode(): Locator {
+  public getDresscodeDescription(): Locator {
     return this.dialog.getByTestId("dresscode");
   }
 

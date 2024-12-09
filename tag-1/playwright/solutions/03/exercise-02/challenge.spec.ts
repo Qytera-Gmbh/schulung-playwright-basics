@@ -24,7 +24,7 @@ test.describe("Create invitation", () => {
       expect.soft(modal.getHostName()).toHaveText("Name: John Doe"),
       expect.soft(modal.getHostMail()).toHaveText("Contact: john.doe@example.org"),
       expect.soft(modal.getLocation()).toHaveText("Location: Big City, Roosevelt Road 52"),
-      expect.soft(modal.getDresscode()).toHaveText("Come dressed in our theme colors: #ffaa00 and #0033ff! Show off your creativity while rocking these colors to add to the festive vibe."),
+      expect.soft(modal.getDresscodeDescription()).toHaveText("Come dressed in our theme colors: #ffaa00 and #0033ff! Show off your creativity while rocking these colors to add to the festive vibe."),
       expect.soft(modal.getAdditionalComments()).toHaveText("I am looking forward to seeing you!"),
     ]);
   });
