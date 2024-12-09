@@ -30,7 +30,7 @@ export class InvitationPreviewModal {
    * @returns the email address
    */
   public getHostMail(): Locator {
-    return this.dialog.getByTestId("contact-host");
+    return this.dialog.getByTestId("email-host");
   }
 
   /**
