@@ -47,7 +47,7 @@ export default function App() {
   return (
     <MantineProvider theme={theme} defaultColorScheme="auto">
       <Container size={"xl"} p={{ sm: "md", md: "xl" }} h={"100%"} mt={"sm"}>
-        <Title order={1}>
+        <Title order={1} data-testid="main-title">
           <Center>{"Party Planner Demo"}</Center>
           <hr />
         </Title>
@@ -56,7 +56,7 @@ export default function App() {
             <Grid.Col span={{ sm: 6, md: 6, lg: 6 }}>
               <Stack gap="md">
                 <Card>
-                  <Title data-testid="titleNameOfTheSite" order={3}>
+                  <Title data-testid="greeting" order={3}>
                     {"Welcome to the Party Planner demo app!"}
                   </Title>
                   <Divider my="md" />
