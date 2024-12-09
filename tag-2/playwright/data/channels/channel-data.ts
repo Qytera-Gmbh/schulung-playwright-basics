@@ -1,4 +1,4 @@
-import { Channel } from "playwright/api/shared/channel-model";
+import { Channel } from "../../api/shared/channel-model";
 
 export function getChannelData(
   channel: "off-topic" | "town-square"

@@ -1,6 +1,6 @@
 import test, { PlaywrightTestArgs } from "@playwright/test";
 import { styleText } from "node:util";
-import { GLOBAL_SETTINGS, TestUser } from "playwright/global-settings";
+import { GLOBAL_SETTINGS, TestUser } from "../../global-settings";
 
 export const userTest = test.extend<{
   /**

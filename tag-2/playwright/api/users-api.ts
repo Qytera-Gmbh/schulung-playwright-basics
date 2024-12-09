@@ -1,4 +1,4 @@
-import { BaseApi } from "playwright/api/base-api";
+import { BaseApi } from "../api/base-api";
 import { Paginated } from "./shared/base-model";
 import { User, UserAccessToken } from "./shared/user-model";
 

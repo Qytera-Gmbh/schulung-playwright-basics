@@ -1,5 +1,5 @@
 import test, { expect } from "@playwright/test";
-import { Checkable, PageObject } from "playwright/pages/page";
+import { Checkable, PageObject } from "../../../../pages/page";
 
 export class PostListItem extends PageObject implements Checkable {
   public get check() {

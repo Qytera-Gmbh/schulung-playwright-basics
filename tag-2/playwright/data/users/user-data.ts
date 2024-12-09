@@ -1,5 +1,5 @@
 import { styleText } from "node:util";
-import { env, TestUser } from "playwright/global-settings";
+import { env, TestUser } from "../../global-settings";
 
 export interface TestUserData {
   email: TestUser;

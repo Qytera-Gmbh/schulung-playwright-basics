@@ -1,8 +1,8 @@
-import { ChannelsApi } from "playwright/api/channels-api";
-import { PostsApi } from "playwright/api/posts-api.ts";
-import { UsersApi } from "playwright/api/users-api";
-import { getTestData } from "playwright/data/test-data";
-import { chatTest } from "playwright/fixtures/fixtures";
+import { ChannelsApi } from "../../../../api/channels-api";
+import { PostsApi } from "../../../../api/posts-api.ts";
+import { UsersApi } from "../../../../api/users-api";
+import { getTestData } from "../../../../data/test-data";
+import { chatTest } from "../../../../fixtures/fixtures";
 
 chatTest.describe.configure({ mode: "default" });
 

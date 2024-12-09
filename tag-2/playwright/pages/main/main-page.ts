@@ -1,4 +1,4 @@
-import { Navigable, PageObject } from "playwright/pages/page";
+import { Navigable, PageObject } from "../../pages/page";
 
 export class MainPage extends PageObject implements Navigable {
   public async open() {

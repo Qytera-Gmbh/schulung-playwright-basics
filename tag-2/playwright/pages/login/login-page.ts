@@ -1,9 +1,9 @@
 import { expect } from "@playwright/test";
 import { styleText } from "node:util";
-import { getUserData } from "playwright/data/users/user-data";
-import { chatTest } from "playwright/fixtures/fixtures";
-import { GLOBAL_SETTINGS } from "playwright/global-settings";
-import { Actionable, Checkable, Navigable, PageObject } from "playwright/pages/page";
+import { getUserData } from "../../data/users/user-data";
+import { chatTest } from "../../fixtures/fixtures";
+import { GLOBAL_SETTINGS } from "../../global-settings";
+import { Actionable, Checkable, Navigable, PageObject } from "../../pages/page";
 
 export class LoginPage extends PageObject implements Actionable, Checkable, Navigable {
   public get do() {

@@ -1,5 +1,5 @@
-import { chatTest } from "playwright/fixtures/fixtures";
-import { Actionable, Navigable, PageObject } from "playwright/pages/page";
+import { chatTest } from "../../fixtures/fixtures";
+import { Actionable, Navigable, PageObject } from "../../pages/page";
 
 export class LandingPage extends PageObject implements Actionable, Navigable {
   public get do() {

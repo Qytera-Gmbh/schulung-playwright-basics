@@ -36,9 +36,7 @@ export default defineConfig({
   timeout: 30 * 1000,
   use: {
     actionTimeout: 10 * 1000,
-    baseURL: "https://mattermost.turtlevi.be",
-    // baseURL: "https://mattermost.qtaf.org",
-    // baseURL: "http://localhost",
+    baseURL: "https://mattermost.qtaf.org",
     screenshot: "on",
     trace: "retain-on-failure",
   },

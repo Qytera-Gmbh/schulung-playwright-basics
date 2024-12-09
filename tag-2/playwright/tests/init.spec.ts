@@ -1,11 +1,11 @@
 import { styleText } from "node:util";
-import { ApiConfiguration } from "playwright/api/base-api";
-import { SystemApi } from "playwright/api/system-api";
-import { TeamsApi } from "playwright/api/teams-api";
-import { UsersApi } from "playwright/api/users-api";
-import { getTeamData } from "playwright/data/teams/team-data";
-import { getUserData } from "playwright/data/users/user-data";
-import { chatTest } from "playwright/fixtures/fixtures";
+import { ApiConfiguration } from "../api/base-api";
+import { SystemApi } from "../api/system-api";
+import { TeamsApi } from "../api/teams-api";
+import { UsersApi } from "../api/users-api";
+import { getTeamData } from "../data/teams/team-data";
+import { getUserData } from "../data/users/user-data";
+import { chatTest } from "../fixtures/fixtures";
 
 // We need to make sure that these setup "tests" run in sequence. First the admin user, then the
 // teams, ...

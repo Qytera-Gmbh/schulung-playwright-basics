@@ -1,4 +1,4 @@
-import { BaseApi } from "playwright/api/base-api";
+import { BaseApi } from "../api/base-api";
 import { ServerConfiguration } from "./shared/system-model";
 import { User } from "./shared/user-model";
 

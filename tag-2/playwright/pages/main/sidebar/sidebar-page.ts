@@ -1,6 +1,6 @@
 import { Page } from "@playwright/test";
-import { chatTest } from "playwright/fixtures/fixtures";
-import { Actionable, PageObject } from "playwright/pages/page";
+import { chatTest } from "../../../fixtures/fixtures";
+import { Actionable, PageObject } from "../../../pages/page";
 
 export class Sidebar extends PageObject implements Actionable {
   constructor(page: Page) {

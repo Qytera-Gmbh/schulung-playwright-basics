@@ -1,9 +1,9 @@
-import { ChannelsApi } from "playwright/api/channels-api";
-import { TeamsApi } from "playwright/api/teams-api";
-import { UsersApi } from "playwright/api/users-api";
-import { getTestData } from "playwright/data/test-data";
-import { getUserData } from "playwright/data/users/user-data";
-import { chatTest } from "playwright/fixtures/fixtures";
+import { ChannelsApi } from "../../../../api/channels-api";
+import { TeamsApi } from "../../../../api/teams-api";
+import { UsersApi } from "../../../../api/users-api";
+import { getTestData } from "../../../../data/test-data";
+import { getUserData } from "../../../../data/users/user-data";
+import { chatTest } from "../../../../fixtures/fixtures";
 
 for (const testData of getTestData("3")) {
   chatTest.describe("[3] channel creation", () => {

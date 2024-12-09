@@ -1,6 +1,6 @@
 import { expect, Page } from "@playwright/test";
-import { chatTest } from "playwright/fixtures/fixtures";
-import { Checkable, PageObject } from "playwright/pages/page";
+import { chatTest } from "../../../../fixtures/fixtures";
+import { Checkable, PageObject } from "../../../../pages/page";
 
 export class ChannelHeader extends PageObject implements Checkable {
   constructor(page: Page) {

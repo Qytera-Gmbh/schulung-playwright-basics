@@ -1,7 +1,7 @@
 import test, { request } from "@playwright/test";
 import { styleText } from "node:util";
-import { ApiConfiguration } from "playwright/api/base-api";
-import { env, TestUser } from "playwright/global-settings";
+import { ApiConfiguration } from "../../api/base-api";
+import { env, TestUser } from "../../global-settings";
 
 export const apiTest = test.extend<{
   /**

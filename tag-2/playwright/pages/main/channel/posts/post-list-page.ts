@@ -1,5 +1,5 @@
 import { Page } from "@playwright/test";
-import { PageObject } from "playwright/pages/page";
+import { PageObject } from "../../../../pages/page";
 import { PostListItem } from "./post-list-item-page";
 
 export class PostList extends PageObject {

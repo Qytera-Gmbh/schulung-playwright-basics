@@ -1,5 +1,5 @@
 import test, { Page } from "@playwright/test";
-import { Actionable, PageObject } from "playwright/pages/page";
+import { Actionable, PageObject } from "../../../../pages/page";
 
 export class Editor extends PageObject implements Actionable {
   constructor(page: Page) {

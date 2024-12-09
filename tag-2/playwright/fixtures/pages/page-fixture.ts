@@ -1,14 +1,14 @@
 import test, { Page } from "@playwright/test";
-import { LandingPage } from "playwright/pages/landing/landing-page";
-import { LoginPage } from "playwright/pages/login/login-page";
-import { Editor } from "playwright/pages/main/channel/editor/editor-page";
-import { ChannelHeader } from "playwright/pages/main/channel/header/channel-header-page";
-import { PostList } from "playwright/pages/main/channel/posts/post-list-page";
-import { MainPage } from "playwright/pages/main/main-page";
-import { CreateChannelModal } from "playwright/pages/main/modals/create-channel-modal-page";
-import { CreateChannelMenu } from "playwright/pages/main/sidebar/create-channel-menu-page";
-import { Sidebar } from "playwright/pages/main/sidebar/sidebar-page";
-import { PageObject } from "playwright/pages/page";
+import { LandingPage } from "../../pages/landing/landing-page";
+import { LoginPage } from "../../pages/login/login-page";
+import { Editor } from "../../pages/main/channel/editor/editor-page";
+import { ChannelHeader } from "../../pages/main/channel/header/channel-header-page";
+import { PostList } from "../../pages/main/channel/posts/post-list-page";
+import { MainPage } from "../../pages/main/main-page";
+import { CreateChannelModal } from "../../pages/main/modals/create-channel-modal-page";
+import { CreateChannelMenu } from "../../pages/main/sidebar/create-channel-menu-page";
+import { Sidebar } from "../../pages/main/sidebar/sidebar-page";
+import { PageObject } from "../../pages/page";
 
 type AvailableFixtures = Parameters<(typeof test)["extend"]>[0];
 

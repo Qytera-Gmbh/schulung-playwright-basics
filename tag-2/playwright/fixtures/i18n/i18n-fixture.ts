@@ -1,8 +1,8 @@
 import test from "@playwright/test";
 import fs from "node:fs";
 import { styleText } from "node:util";
-import { getUserData, TestUserData } from "playwright/data/users/user-data";
-import { GLOBAL_SETTINGS } from "playwright/global-settings";
+import { getUserData, TestUserData } from "../../data/users/user-data";
+import { GLOBAL_SETTINGS } from "../../global-settings";
 import { I18N } from "./i18n";
 
 type I18N = typeof I18N;
