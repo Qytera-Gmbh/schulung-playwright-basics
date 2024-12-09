@@ -11,6 +11,7 @@ export default defineConfig({
   use: {
     actionTimeout: 4 * 1000,
     trace: "retain-on-failure",
+    screenshot: "on"
   },
   projects: [
     {

@@ -7,10 +7,10 @@ export default defineConfig({
   testDir: "./tests",
   fullyParallel: true,
   retries: 0,
-  reporter: "line",
+  reporter: [["line"]],
   use: {
     actionTimeout: 4 * 1000,
-    trace: "on-first-retry",
+    trace: "on-first-retry"
   },
   projects: [
     {
