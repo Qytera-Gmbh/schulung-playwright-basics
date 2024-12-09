@@ -11,11 +11,11 @@ test.describe("even", () => {
 test.describe("odd", () => {    
     test.describe.configure({ mode: 'default' });
     test("Test 1", async ({}, testInfo) => { await setTimeout(100); console.log(`Worker ${testInfo.workerIndex} | Test 1`); });
+    test("Test 7", async ({}, testInfo) => { await setTimeout(100); console.log(`Worker ${testInfo.workerIndex} | Test 7`); });
     test.describe("divisible by 5", () => {
         test.beforeEach("I run only before tests divisibly by 5", ({}, testInfo) => { console.log(`Before   | ${testInfo.title}`); });
         test("Test 5", async ({}, testInfo) => { await setTimeout(100); console.log(`Worker ${testInfo.workerIndex} | Test 5`); });
     });
-    test("Test 7", async ({}, testInfo) => { await setTimeout(100); console.log(`Worker ${testInfo.workerIndex} | Test 7`); });
 });
 
 test.describe("divisibly by three", () => {
