@@ -32,34 +32,34 @@ export default function InvitationModal(props: {
       <Space h="lg" />
       <Title order={4}>👋 Host</Title>
       <Text data-testid="name-host">Name: {props.data.host.name}</Text>
-      <Text data-testid="mail-host">
+      <Text data-testid="email-host">
         Contact: <a href={`mailto:${props.data.host.email}`}>{props.data.host.email}</a>
       </Text>
       <Divider my="md" />
       <Title order={4}>🗺 When & Where</Title>
-      <Text>
+      <Text data-testid="location">
         <Text span>Location: </Text>
-        <Text span data-testid="whenwhere-city">
+        <Text span>
           {props.data.location.city}
         </Text>
         <Text span>{", "}</Text>
-        <Text span data-testid="whenwhere-street">
+        <Text span>
           {props.data.location.street}
         </Text>
         <Text span> </Text>
-        <Text span data-testid="whenwhere-street-number">
+        <Text span>
           {props.data.location.streetNumber}
         </Text>
       </Text>
       <Divider my="md" />
       <Title order={4}>📅 Date & Time</Title>
-      <Text>
+      <Text data-testid="date">
         {props.selectedDay && props.selectedTime ? (
           <>
-            <Text span data-testid="date-time-local-date">
+            <Text span>
               {props.selectedDay.toLocaleDateString()}
             </Text>
-            <Text span data-testid="date-time-local-time">
+            <Text span>
               {" "}
               {props.selectedTime.toLocaleTimeString()}
             </Text>
@@ -70,14 +70,13 @@ export default function InvitationModal(props: {
       </Text>
       <Divider my="md" />
       <Title order={4}>💃 Dress Code</Title>
-      <Text>
+      <Text data-testid="dresscode">
         <Text span>
           <Text span>Come dressed in our theme colors: </Text>
           <Text
             span
             c={props.data.dressCode.primaryColor}
             fw={500}
-            data-testid="dress-code-primary-color"
           >
             {props.data.dressCode.primaryColor}
           </Text>
@@ -86,7 +85,6 @@ export default function InvitationModal(props: {
             span
             c={props.data.dressCode.secondaryColor}
             fw={500}
-            data-testid="dress-code-secondary-color"
           >
             {props.data.dressCode.secondaryColor}
           </Text>
@@ -94,29 +92,29 @@ export default function InvitationModal(props: {
           <Text span>
             Show off your creativity while rocking these colors to add to the festive vibe.
           </Text>
-          <Space h="md" />
-          <Progress
-            size="xl"
-            value={100}
-            styles={{
-              root: {
-                borderRadius: "0",
-              },
-              section: {
-                borderRadius: "0",
-                animation: "gradient 2s ease infinite",
-                background: `linear-gradient(-45deg, ${props.data.dressCode.primaryColor} 0%, ${props.data.dressCode.secondaryColor} 100%)`,
-                backgroundSize: "400% 400%",
-              },
-            }}
-          />
         </Text>
       </Text>
+      <Space h="md" />
+      <Progress
+        size="xl"
+        value={100}
+        styles={{
+          root: {
+            borderRadius: "0",
+          },
+          section: {
+            borderRadius: "0",
+            animation: "gradient 2s ease infinite",
+            background: `linear-gradient(-45deg, ${props.data.dressCode.primaryColor} 0%, ${props.data.dressCode.secondaryColor} 100%)`,
+            backgroundSize: "400% 400%",
+          },
+        }}
+      />
       {props.data.additionalInformation.comments.length > 0 ? (
         <>
           <Divider my="md" />
           <Title order={4}>Additional Details</Title>
-          <Text fs="italic" data-testid="additional-details-entry">
+          <Text fs="italic" data-testid="additional-comments">
             {props.data.additionalInformation.comments}
           </Text>
         </>

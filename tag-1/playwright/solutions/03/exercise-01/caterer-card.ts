@@ -33,17 +33,13 @@ export class CatererCard {
     if (caterer.name) {
       // Only keep the caterers that contain the specified name.
       locator = locator.filter({
-        has: this.page
-          .getByTestId("caterer-name")
-          .and(this.page.getByText(caterer.name, { exact: true })),
+        has: this.page.getByTestId("caterer-name").and(this.page.getByText(caterer.name, { exact: true })),
       });
     }
     if (caterer.email) {
       // Only keep the caterers that contain the specified email.
       locator = locator.filter({
-        has: this.page
-          .getByTestId("caterer-email")
-          .and(this.page.getByText(caterer.email, { exact: true })),
+        has: this.page.getByTestId("caterer-email").and(this.page.getByText(caterer.email, { exact: true })),
       });
     }
     return locator.getByRole("radio");

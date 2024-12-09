@@ -1,35 +1,71 @@
-import { Page } from "@playwright/test";
+import { Locator, Page } from "@playwright/test";
 
 export class InvitationPreviewModal {
-  constructor(public page: Page) {
+
+  private readonly page: Page;
+  private readonly dialog: Locator;
+
+  /**
+   * Constructs a new preview modal.
+   * 
+   * @param page the current page
+   */
+  constructor(page: Page) {
     this.page = page;
+    this.dialog = page.getByRole("dialog");
   }
 
-  hostName() {
-    return this.page.getByTestId("name-host");
+  /**
+   * Returns the host's name.
+   * 
+   * @returns the name
+   */
+  public getHostName(): Locator {
+    return this.dialog.getByTestId("name-host");
   }
 
-  hostMail() {
-    return this.page.getByTestId("mail-host");
+  /**
+   * Returns the host's email address.
+   * 
+   * @returns the email address
+   */
+  public getHostMail(): Locator {
+    return this.dialog.getByTestId("contact-host");
   }
 
-  whenWhereCity() {
-    return this.page.getByTestId("whenwhere-city");
+  /**
+   * Returns the party location.
+   * 
+   * @returns the location
+   */
+  public getLocation(): Locator {
+    return this.dialog.getByTestId("location");
   }
 
-  whenWhereStreet() {
-    return this.page.getByTestId("whenwhere-street");
+  /**
+   * Returns the date of the party.
+   * 
+   * @returns the date
+   */
+  public getDate(): Locator {
+    return this.dialog.getByTestId("date");
   }
 
-  whenWhereStreetNumber() {
-    return this.page.getByTestId("whenwhere-street-number");
+  /**
+   * Returns the dresscode description of the party.
+   * 
+   * @returns the description
+   */
+  public getDresscode(): Locator {
+    return this.dialog.getByTestId("dresscode");
   }
 
-  dateTimeLocalDate() {
-    return this.page.getByTestId("date-time-local-date");
-  }
-
-  dateTimeLocalTime() {
-    return this.page.getByTestId("date-time-local-time");
+  /**
+   * Returns the additional comments.
+   * 
+   * @returns the comments
+   */
+  public getAdditionalComments(): Locator {
+    return this.dialog.getByTestId("additional-comments");
   }
 }
