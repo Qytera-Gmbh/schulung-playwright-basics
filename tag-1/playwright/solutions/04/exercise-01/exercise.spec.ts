@@ -1,17 +1,26 @@
 import { test } from "@playwright/test";
+import { setTimeout } from "timers/promises";
 
-test("Test A", ({}, testInfo) => console.log(`Worker ${testInfo.workerIndex} | Test A`));
-test("Test B", ({}, testInfo) => console.log(`Worker ${testInfo.workerIndex} | Test B`));
-test("Test C", ({}, testInfo) => console.log(`Worker ${testInfo.workerIndex} | Test C`));
+test.describe("even", () => {
+    test.afterEach("I run only after even tests", ({}, testInfo) => { console.log(`After    | ${testInfo.title}`); });
+    test("Test 2", async ({}, testInfo) => { await setTimeout(100); console.log(`Worker ${testInfo.workerIndex} | Test 2`); });
+    test("Test 4", async ({}, testInfo) => { await setTimeout(100); console.log(`Worker ${testInfo.workerIndex} | Test 4`); });
+    test("Test 8", async ({}, testInfo) => { await setTimeout(100); console.log(`Worker ${testInfo.workerIndex} | Test 8`); });
+});
 
-test("Test D", ({}, testInfo) => console.log(`Worker ${testInfo.workerIndex} | Test D`));
-test("Test E", ({}, testInfo) => console.log(`Worker ${testInfo.workerIndex} | Test E`));
-test("Test F", ({}, testInfo) => console.log(`Worker ${testInfo.workerIndex} | Test F`));
+test.describe("odd", () => {    
+    test.describe.configure({ mode: 'default' });
+    test("Test 1", async ({}, testInfo) => { await setTimeout(100); console.log(`Worker ${testInfo.workerIndex} | Test 1`); });
+    test.describe("divisible by 5", () => {
+        test.beforeEach("I run only before tests divisibly by 5", ({}, testInfo) => { console.log(`Before   | ${testInfo.title}`); });
+        test("Test 5", async ({}, testInfo) => { await setTimeout(100); console.log(`Worker ${testInfo.workerIndex} | Test 5`); });
+    });
+    test("Test 7", async ({}, testInfo) => { await setTimeout(100); console.log(`Worker ${testInfo.workerIndex} | Test 7`); });
+});
 
-test("Test G", ({}, testInfo) => console.log(`Worker ${testInfo.workerIndex} | Test G`));
-test("Test H", ({}, testInfo) => console.log(`Worker ${testInfo.workerIndex} | Test H`));
-test("Test I", ({}, testInfo) => console.log(`Worker ${testInfo.workerIndex} | Test I`));
-
-test("Test J", ({}, testInfo) => console.log(`Worker ${testInfo.workerIndex} | Test J`));
-test("Test K", ({}, testInfo) => console.log(`Worker ${testInfo.workerIndex} | Test K`));
-test("Test L", ({}, testInfo) => console.log(`Worker ${testInfo.workerIndex} | Test L`));
+test.describe("divisibly by three", () => {
+    test.describe.configure({ mode: 'default' });
+    test("Test 3", async ({}, testInfo) => { await setTimeout(100); console.log(`Worker ${testInfo.workerIndex} | Test 3`); });
+    test("Test 6", async ({}, testInfo) => { await setTimeout(100); console.log(`Worker ${testInfo.workerIndex} | Test 6`); });
+    test("Test 9", async ({}, testInfo) => { await setTimeout(100); console.log(`Worker ${testInfo.workerIndex} | Test 9`); });
+});
