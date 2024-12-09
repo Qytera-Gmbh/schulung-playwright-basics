@@ -18,7 +18,7 @@ export class InvitationCard {
    * 
    * @returns the input
    */
-  getInputName(): Locator {
+  public getInputName(): Locator {
     return this.page.getByTestId("host").getByTestId("name");
   }
 
@@ -27,7 +27,7 @@ export class InvitationCard {
    * 
    * @returns the input
    */
-  getInputMail(): Locator {
+  public getInputMail(): Locator {
     return this.page.getByTestId("host").getByTestId("email");
   }
 
@@ -36,7 +36,7 @@ export class InvitationCard {
    * 
    * @returns the input
    */
-  getInputStreet(): Locator {
+  public getInputStreet(): Locator {
     return this.page.getByTestId("location").getByTestId("street");
   }
 
@@ -45,7 +45,7 @@ export class InvitationCard {
    * 
    * @returns the input
    */
-  getInputStreetnumber(): Locator {
+  public getInputStreetnumber(): Locator {
     return this.page.getByTestId("location").getByTestId("streetnumber");
   }
 
@@ -54,7 +54,7 @@ export class InvitationCard {
    * 
    * @returns the input
    */
-  getInputCity(): Locator {
+  public getInputCity(): Locator {
     return this.page.getByTestId("location").getByTestId("city");
   }
 
@@ -63,7 +63,7 @@ export class InvitationCard {
    * 
    * @returns the color picker
    */
-  getColorPickerPrimary(): Locator {
+  public getColorPickerPrimary(): Locator {
     return this.page.getByTestId("dresscode").getByTestId("primary-color");
   }
 
@@ -72,7 +72,7 @@ export class InvitationCard {
    * 
    * @returns the color picker
    */
-  getColorPickerSecondary(): Locator {
+  public getColorPickerSecondary(): Locator {
     return this.page.getByTestId("dresscode").getByTestId("secondary-color");
   }
 
@@ -81,7 +81,7 @@ export class InvitationCard {
    * 
    * @returns the input
    */
-  getInputComments(): Locator {
+  public getInputComments(): Locator {
     return this.page.getByTestId("additional-information").getByTestId("comments");
   }
 
@@ -90,7 +90,7 @@ export class InvitationCard {
    * 
    * @returns the button
    */
-  getButtonPreview(): Locator {
+  public getButtonPreview(): Locator {
     return this.page.getByTestId("preview-invitation");
   }
 }
