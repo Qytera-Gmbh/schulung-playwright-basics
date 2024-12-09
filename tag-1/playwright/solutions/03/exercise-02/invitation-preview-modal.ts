@@ -2,7 +2,6 @@ import { Locator, Page } from "@playwright/test";
 
 export class InvitationPreviewModal {
 
-  private readonly page: Page;
   private readonly dialog: Locator;
 
   /**
@@ -11,7 +10,6 @@ export class InvitationPreviewModal {
    * @param page the current page
    */
   constructor(page: Page) {
-    this.page = page;
     this.dialog = page.getByRole("dialog");
   }
 
