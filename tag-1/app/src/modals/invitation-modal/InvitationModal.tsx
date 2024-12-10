@@ -1,4 +1,4 @@
-import { Divider, Modal, Progress, Space, Text, Title } from "@mantine/core";
+import { Code, Divider, Modal, Progress, Space, Text, Title } from "@mantine/core";
 import { DateValue } from "@mantine/dates";
 import { PartyForm } from "../../cards/FormCard";
 import "./modal.css";
