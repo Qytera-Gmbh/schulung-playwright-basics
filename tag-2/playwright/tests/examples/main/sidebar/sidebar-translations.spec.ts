@@ -1,6 +1,6 @@
 import { expect } from "@playwright/test";
-import { chatTest } from "../../../fixtures/fixtures";
-import { I18N } from "../../../fixtures/i18n/i18n";
+import { chatTest } from "../../../../fixtures/fixtures";
+import { I18N } from "../../../../fixtures/i18n/i18n";
 
 chatTest("[4] channel list translations", async ({ on, page, translate }) => {
   await on(page).main.open();

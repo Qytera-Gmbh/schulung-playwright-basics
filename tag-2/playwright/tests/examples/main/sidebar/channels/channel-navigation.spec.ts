@@ -1,5 +1,5 @@
-import { getTestData } from "../../../../data/test-data";
-import { chatTest } from "../../../../fixtures/fixtures";
+import { getTestData } from "../../../../../data/test-data";
+import { chatTest } from "../../../../../fixtures/fixtures";
 
 for (const channel of getTestData("2")) {
   chatTest.describe("[2] channel navigation", () => {

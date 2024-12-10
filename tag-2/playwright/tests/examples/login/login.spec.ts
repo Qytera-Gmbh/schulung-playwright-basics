@@ -1,5 +1,5 @@
-import { getTestData } from "../../data/test-data";
-import { chatTest } from "../../fixtures/fixtures";
+import { getTestData } from "../../../data/test-data";
+import { chatTest } from "../../../fixtures/fixtures";
 
 for (const testData of getTestData("1")) {
   chatTest.describe("[1] login", () => {

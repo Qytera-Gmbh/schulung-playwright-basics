@@ -1,5 +1,4 @@
 import { defineConfig, devices } from "@playwright/test";
-import { GLOBAL_SETTINGS } from "./global-settings";
 
 /**
  * See https://playwright.dev/docs/test-configuration.
@@ -10,27 +9,22 @@ export default defineConfig({
   },
   fullyParallel: true,
   projects: [
+    // {
+    //   name: "setup-auth",
+    //   testMatch: "login.spec.ts",
+    //   use: { ...devices["Desktop Chrome"] },
+    // },
     {
-      name: "init",
-      testMatch: process.env.INIT ? "init.spec.ts" : "none",
-      use: { ...devices["Desktop Chrome"] },
-    },
-    {
-      name: "setup-auth",
-      testMatch: "login.spec.ts",
-      use: { ...devices["Desktop Chrome"] },
-    },
-    {
-      dependencies: GLOBAL_SETTINGS.projectDependencies,
-      name: "chromium",
-      testIgnore: ["login.spec.ts", "init.spec.ts"],
+      dependencies: [],
+      name: "schulung",
+      testIgnore: ["init.spec.ts", "**/examples/**"],
       use: {
         ...devices["Desktop Chrome"],
-        storageState: GLOBAL_SETTINGS.defaultUser.authFile,
+        storageState: "auth/jane.json",
       },
     },
   ],
-  reporter: [["html"], ["line"]],
+  reporter: [["html", { open: "never" }], ["line"]],
   retries: process.env.CI ? 2 : 0,
   testDir: "./tests",
   timeout: 30 * 1000,
