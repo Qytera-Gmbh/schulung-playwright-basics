@@ -73,21 +73,13 @@ export default function InvitationModal(props: {
       <Text data-testid="dresscode">
         <Text span>
           <Text span>Come dressed in our theme colors: </Text>
-          <Text
-            span
-            c={props.data.dressCode.primaryColor}
-            fw={500}
-          >
+          <Code c={props.data.dressCode.primaryColor} fw={500}>
             {props.data.dressCode.primaryColor}
-          </Text>
+          </Code>
           <Text span> and </Text>
-          <Text
-            span
-            c={props.data.dressCode.secondaryColor}
-            fw={500}
-          >
+          <Code c={props.data.dressCode.secondaryColor} fw={500}>
             {props.data.dressCode.secondaryColor}
-          </Text>
+          </Code>
           <Text span>! </Text>
           <Text span>
             Show off your creativity while rocking these colors to add to the festive vibe.
