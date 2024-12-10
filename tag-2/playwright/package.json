@@ -1,0 +1,39 @@
+{
+  "name": "webinar-playwright-tips",
+  "version": "1.0.0",
+  "description": "Poc of large-scale Playwright projects",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Qytera-Gmbh/webinar-playwright-tips.git"
+  },
+  "keywords": [
+    "playwright",
+    "typescript"
+  ],
+  "engines": {
+    "node": ">=20.12.0"
+  },
+  "author": "csvtuda",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Qytera-Gmbh/webinar-playwright-tips/issues"
+  },
+  "homepage": "https://github.com/Qytera-Gmbh/webinar-playwright-tips#readme",
+  "devDependencies": {
+    "@eslint/js": "^9.10.0",
+    "@playwright/test": "^1.47.1",
+    "@types/eslint__eslintrc": "^2.1.2",
+    "@types/node": "^22.5.5",
+    "@typescript-eslint/parser": "^8.5.0",
+    "dotenv": "^16.4.5",
+    "eslint": "^9.15.0",
+    "eslint-plugin-perfectionist": "^3.6.0",
+    "prettier": "^3.3.3",
+    "typescript": "^5.5.3",
+    "typescript-eslint": "^8.5.0"
+  }
+}
