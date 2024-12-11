@@ -1,12 +1,11 @@
 import { Locator, Page } from "@playwright/test";
 
 export class InvitationCard {
-
   private readonly page: Page;
 
   /**
    * Constructs a new invitation card page object.
-   * 
+   *
    * @param page the current page
    */
   constructor(page: Page) {
@@ -15,7 +14,7 @@ export class InvitationCard {
 
   /**
    * Returns the input for the host's name.
-   * 
+   *
    * @returns the input
    */
   public getInputName(): Locator {
@@ -24,7 +23,7 @@ export class InvitationCard {
 
   /**
    * Returns the input for the host's email.
-   * 
+   *
    * @returns the input
    */
   public getInputMail(): Locator {
@@ -33,7 +32,7 @@ export class InvitationCard {
 
   /**
    * Returns the input for the street of the party location.
-   * 
+   *
    * @returns the input
    */
   public getInputStreet(): Locator {
@@ -42,7 +41,7 @@ export class InvitationCard {
 
   /**
    * Returns the input for the streetnumber of the party location.
-   * 
+   *
    * @returns the input
    */
   public getInputStreetnumber(): Locator {
@@ -51,7 +50,7 @@ export class InvitationCard {
 
   /**
    * Returns the input for the city of the party location.
-   * 
+   *
    * @returns the input
    */
   public getInputCity(): Locator {
@@ -60,7 +59,7 @@ export class InvitationCard {
 
   /**
    * Returns the color picker for the primary color of the dress code.
-   * 
+   *
    * @returns the color picker
    */
   public getColorPickerPrimary(): Locator {
@@ -69,7 +68,7 @@ export class InvitationCard {
 
   /**
    * Returns the color picker for the secondary color of the dress code.
-   * 
+   *
    * @returns the color picker
    */
   public getColorPickerSecondary(): Locator {
@@ -78,16 +77,18 @@ export class InvitationCard {
 
   /**
    * Returns the input for additional comments.
-   * 
+   *
    * @returns the input
    */
   public getInputComments(): Locator {
-    return this.page.getByTestId("additional-information").getByTestId("comments");
+    return this.page
+      .getByTestId("additional-information")
+      .getByTestId("comments");
   }
 
   /**
    * Returns the button for previewing the invitation card.
-   * 
+   *
    * @returns the button
    */
   public getButtonPreview(): Locator {

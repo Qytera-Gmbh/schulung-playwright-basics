@@ -1,12 +1,11 @@
-import { Locator, Page } from "@playwright/test";
+import { Page } from "@playwright/test";
 
 export class CatererCard {
-
   private readonly page: Page;
 
   /**
    * Constructs a new caterer card object.
-   * 
+   *
    * @param page the current page
    * @param root the card's root locator
    */
@@ -24,5 +23,4 @@ export class CatererCard {
   //    - die Beschreibung des ausgewählten Caterers
 
   // TODO ...
-
 }

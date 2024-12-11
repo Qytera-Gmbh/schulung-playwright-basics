@@ -5,7 +5,7 @@ export class CatererCard {
 
   /**
    * Constructs a new caterer card page object.
-   * 
+   *
    * @param page the current page
    */
   constructor(page: Page) {
@@ -14,32 +14,36 @@ export class CatererCard {
 
   /**
    * Returns the radio button for the specific caterer.
-   * 
+   *
    * @param caterer the caterer
    * @returns the radio button
    */
-  public getRadio(caterer: { 
+  public getRadio(caterer: {
     /**
      * The caterer name.
      */
-    name?: string; 
+    name?: string;
     /**
      * The caterer email.
      */
-    email?: string 
+    email?: string;
   }): Locator {
     // Locate all caterer elements.
     let locator = this.page.getByTestId("caterer");
     if (caterer.name) {
       // Only keep the caterers that contain the specified name.
       locator = locator.filter({
-        has: this.page.getByTestId("caterer-name").and(this.page.getByText(caterer.name, { exact: true })),
+        has: this.page
+          .getByTestId("caterer-name")
+          .and(this.page.getByText(caterer.name, { exact: true })),
       });
     }
     if (caterer.email) {
       // Only keep the caterers that contain the specified email.
       locator = locator.filter({
-        has: this.page.getByTestId("caterer-email").and(this.page.getByText(caterer.email, { exact: true })),
+        has: this.page
+          .getByTestId("caterer-email")
+          .and(this.page.getByText(caterer.email, { exact: true })),
       });
     }
     return locator.getByRole("radio");
@@ -47,10 +51,10 @@ export class CatererCard {
 
   /**
    * Returns the selected caterer's information.
-   * 
+   *
    * @returns the information
    */
-  public getInfo(): { 
+  public getInfo(): {
     /**
      * The caterer name.
      */
@@ -58,8 +62,8 @@ export class CatererCard {
     /**
      * The caterer description.
      */
-    description: Locator
-   } {
+    description: Locator;
+  } {
     return {
       name: this.page.getByTestId("selected-caterer-name"),
       description: this.page.getByTestId("selected-caterer-description"),

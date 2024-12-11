@@ -1,12 +1,11 @@
 import { Locator, Page } from "@playwright/test";
 
 export class InvitationPreviewModal {
-
   private readonly dialog: Locator;
 
   /**
    * Constructs a new preview modal.
-   * 
+   *
    * @param page the current page
    */
   constructor(page: Page) {
@@ -15,7 +14,7 @@ export class InvitationPreviewModal {
 
   /**
    * Returns the host's name.
-   * 
+   *
    * @returns the name
    */
   public getHostName(): Locator {
@@ -24,7 +23,7 @@ export class InvitationPreviewModal {
 
   /**
    * Returns the host's email address.
-   * 
+   *
    * @returns the email address
    */
   public getHostMail(): Locator {
@@ -33,7 +32,7 @@ export class InvitationPreviewModal {
 
   /**
    * Returns the party location.
-   * 
+   *
    * @returns the location
    */
   public getLocation(): Locator {
@@ -42,7 +41,7 @@ export class InvitationPreviewModal {
 
   /**
    * Returns the date of the party.
-   * 
+   *
    * @returns the date
    */
   public getDate(): Locator {
@@ -51,7 +50,7 @@ export class InvitationPreviewModal {
 
   /**
    * Returns the dresscode description of the party.
-   * 
+   *
    * @returns the description
    */
   public getDresscodeDescription(): Locator {
@@ -60,7 +59,7 @@ export class InvitationPreviewModal {
 
   /**
    * Returns the additional comments.
-   * 
+   *
    * @returns the comments
    */
   public getAdditionalComments(): Locator {

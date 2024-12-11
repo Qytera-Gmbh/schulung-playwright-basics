@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test";
-import { CatererCard } from "./caterer-card";
 import { PartyPlannerPage } from "page-objects/party-planner-page";
+import { CatererCard } from "./caterer-card";
 
 const CATERERS = [
   {
@@ -34,7 +34,9 @@ test.describe("Check caterers", () => {
       const catererCard = new CatererCard(page);
       await catererCard.getRadio({ name: caterer.name }).check();
       await expect(catererCard.getInfo().name).toHaveText(caterer.name);
-      await expect(catererCard.getInfo().description).toHaveText(caterer.description);
+      await expect(catererCard.getInfo().description).toHaveText(
+        caterer.description
+      );
     });
   }
 });
