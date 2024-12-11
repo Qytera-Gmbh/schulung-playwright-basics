@@ -2,10 +2,8 @@
 
 In diesem Projekt liegen Übungsaufgaben und die dazu passenden Lösungen.
 
-<div style="background:rgba(34, 59, 175, 0.3);padding:10px;border:2px solid var(--splitter-border-color,rgba(0, 0, 0, .42))">
-  <p>📝&nbsp;<b>Note</b></p>
-  Der <a href="https://playwright.dev/docs/intro">offiziellen Dokumentation</a> können zu allen hier aufgeführten Themen genauere Details entnommen werden.
-</div>
+> [!TIP]
+> Der [offiziellen Dokumentation](https://playwright.dev/docs/intro) können zu allen hier aufgeführten Themen genauere Details entnommen werden.
 
 ## Voraussetzungen
 
