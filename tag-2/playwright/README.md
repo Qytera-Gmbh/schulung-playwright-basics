@@ -3,9 +3,10 @@
 In diesem Projekt kann man sich ansehen, wie ein "echtes" Playwright-Projekt aufgebaut werden kann, inklusive:
 
 - Verwaltung von Credentials & Secrets
+- Authentication
 - Erstellung von sauberen Page Objects
 - Page Object Fixtures
-- Linting
+- I18N
 
 ## Setup
 
@@ -43,6 +44,6 @@ In diesem Projekt kann man sich ansehen, wie ein "echtes" Playwright-Projekt auf
 Um alle Tests auszuführen kann man den folgenden Befehl verwenden:
 
 ```sh
-cd tag-1/playwright
+cd tag-2/playwright
 npx playwright test
 ```
