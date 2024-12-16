@@ -15,4 +15,4 @@
    docker compose up -d
    ```
 
-2. In der `tag-2/playwright/playwright.config.ts` die `baseURL` anpassen
+2. In `tag-2/playwright/playwright.config.ts` die `baseURL` anpassen

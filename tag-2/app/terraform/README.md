@@ -34,4 +34,4 @@ In diesem Ordner liegen Terraform-Skripte, mit denen Mattermost in AWS über Far
    tofu apply -var-file variables.tfvars
    ```
 
-3. In der `tag-2/playwright/playwright.config.ts` die `baseURL` anpassen
+3. In `tag-2/playwright/playwright.config.ts` die `baseURL` anpassen
