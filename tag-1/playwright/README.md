@@ -24,6 +24,17 @@ npm install
 npx playwright install # installiert Systemlibraries & Browser
 ```
 
+Das Testobjekt lässt sich auch lokal starten, sollte es online nicht verfügbar sein.
+Dazu einfach die folgenden Schritte ausführen:
+
+```sh
+cd tag-1/app
+npm install
+npm run dev
+```
+
+Anschließend alle URLs in den Tests durch die angezeigte URL ersetzen.
+
 ## Tests ausführen
 
 ### Alle Tests Ausführen

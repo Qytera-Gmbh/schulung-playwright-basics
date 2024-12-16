@@ -1,26 +1,24 @@
 # Party Planner
 
-A [Vue.js](https://vuejs.org/) project utilizing [Mantine](https://mantine.dev/) for styled components.
+Ein [Vue.js](https://vuejs.org/) Projekt mit [Mantine](https://mantine.dev/) als Styling.
 
-## Project Setup
+## Setup
 
-1. Install Dependencies
+1. Dependencies installieren:
 
-   ```bash
+   ```sh
    cd tag-1/app
    npm install
    ```
 
-2. Run the Project
+2. Projekt ausführen:
 
-   ```bash
+   ```sh
    npm run dev
    ```
 
-## Usage
+## Verwendung
 
-- `npm run dev` - Compiles and hot-reloads for development.
+- `npm run dev` - Kompilieren und einen Hot-Reload-Server starten
 
-- `npm run build` - Compiles and minifies for production.
-
-- `npm run lint` - Lints and fixes files.
+- `npm run build` - Kompilieren und für das Deployment vorbereiten
