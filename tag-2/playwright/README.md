@@ -9,13 +9,34 @@ In diesem Projekt kann man sich ansehen, wie ein "echtes" Playwright-Projekt auf
 
 ## Setup
 
-Mit den folgenden Befehlen kann das Projekt zum Laufen gebracht werden:
+1. Playwright installieren:
 
-```sh
-cd tag-2/playwright
-npm install
-npx playwright install
-```
+   ```sh
+   cd tag-2/playwright
+   npm install
+   npx playwright install
+   ```
+
+2. Umgebungsvariablen für Mattermost vorbereiten:
+
+   ```sh
+   cd tag-2/playwright
+   cp env.example .env
+   ```
+
+3. In der `.env`-Datei Passwörter für die User eintragen (Tokens kommen im nächsten Schritt)
+
+4. Mattermost initialisieren (User erstellen, Berechtigungen setzen, API Tokens erstellen):
+
+   ```sh
+   cd tag-2/playwright
+   npm install
+   npx playwright install
+   INIT=true npx playwright test init.spec.ts
+   ```
+
+> [!IMPORTANT]
+> Die angezeigten API-Tokens müssen in der `.env`-Datei abgelegt werden, sonst funktionieren die Tests später nicht.
 
 ## Tests ausführen
 
