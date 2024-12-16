@@ -1,8 +1,3 @@
-data "aws_acm_certificate" "root" {
-  domain   = var.domain
-  statuses = ["ISSUED"]
-}
-
 data "aws_route53_zone" "root" {
   name = var.domain
 }
