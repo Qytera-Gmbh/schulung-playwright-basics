@@ -25,7 +25,7 @@
   "homepage": "https://github.com/Qytera-Gmbh/webinar-playwright-tips#readme",
   "devDependencies": {
     "@eslint/js": "^9.10.0",
-    "@playwright/test": "^1.47.1",
+    "@playwright/test": "^1.56.1",
     "@types/eslint__eslintrc": "^2.1.2",
     "@types/node": "^22.5.5",
     "@typescript-eslint/parser": "^8.5.0",
